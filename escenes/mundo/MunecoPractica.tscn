@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://csu6fyoljpmja"]
+
+[ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="1_epbtr"]
+[ext_resource type="Script" uid="uid://m6o6rygady8s" path="res://scripts/mundo/muneco_practica.gd" id="1_jblxa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jblxa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nr7b0"]
+albedo_color = Color(1, 1, 0.15294118, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oul7s"]
+
+[node name="MunecoPractica" type="StaticBody3D" unique_id=1462395902]
+script = ExtResource("1_jblxa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1900686907]
+shape = SubResource("CapsuleShape3D_jblxa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=157214677]
+material_override = SubResource("StandardMaterial3D_nr7b0")
+mesh = SubResource("CapsuleMesh_oul7s")
+
+[node name="Damageable" type="Node" parent="." unique_id=993221377]
+script = ExtResource("1_epbtr")
+vida_maxima = 60

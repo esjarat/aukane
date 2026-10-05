@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DialogoDefinicion" format=3 uid="uid://5til765vo27b"]
+
+[ext_resource type="Script" uid="uid://lxtyea467oc" path="res://scripts/npc/dialogo_linea.gd" id="1_7ok28"]
+[ext_resource type="Script" uid="uid://drfivspcpotc4" path="res://scripts/npc/dialogo_definicion.gd" id="1_anikr"]
+[ext_resource type="Script" uid="uid://7bpii770t7mv" path="res://scripts/npc/dialogo_opcion.gd" id="2_rgq1r"]
+
+[sub_resource type="Resource" id="Resource_anikr"]
+script = ExtResource("1_7ok28")
+texto = "Pues mira… yo llevo aquí en el mercado de Aukane…\\nbastantes años ya, joven."
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_rgq1r"]
+script = ExtResource("1_7ok28")
+texto = "Antes esta aldea no era más que 5 chozas y un pozo.\\nAhora mira: granjas, huertos y…"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_7ok28"]
+script = ExtResource("1_7ok28")
+texto = "Bueno, ya me pongo viejo y charlatán 😅.\\n¿Volvemos a lo importante?"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_pb4n3"]
+script = ExtResource("2_rgq1r")
+texto_opcion = "🛒 Quiero COMPRAR"
+id_siguiente_dialogo = &"mercader_menu_comprar"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[sub_resource type="Resource" id="Resource_ecgkd"]
+script = ExtResource("2_rgq1r")
+texto_opcion = "👋 Volver más tarde"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[resource]
+script = ExtResource("1_anikr")
+id_dialogo = &"mercader_historia"
+npc_id_propietario = &"mercader"
+nombre_mostrar_npc = "Don Mercader"
+lineas = Array[Resource]([SubResource("Resource_anikr"), SubResource("Resource_rgq1r"), SubResource("Resource_7ok28")])
+opciones = Array[Resource]([SubResource("Resource_pb4n3"), SubResource("Resource_ecgkd")])
+metadata/_custom_type_script = "uid://drfivspcpotc4"

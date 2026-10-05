@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="DialogoDefinicion" format=3 uid="uid://dge6k10pg8w2j"]
+
+[ext_resource type="Script" uid="uid://drfivspcpotc4" path="res://scripts/npc/dialogo_definicion.gd" id="1_1o82o"]
+[ext_resource type="Script" uid="uid://lxtyea467oc" path="res://scripts/npc/dialogo_linea.gd" id="1_illc3"]
+[ext_resource type="Script" uid="uid://7bpii770t7mv" path="res://scripts/npc/dialogo_opcion.gd" id="2_02y77"]
+
+[sub_resource type="Resource" id="Resource_kbgmb"]
+script = ExtResource("1_illc3")
+texto = "¡Buenos días, joven Aukaner! 👋"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_08dl6"]
+script = ExtResource("1_illc3")
+texto = "Hace un sol espléndido para sembrar zanahorias, ¿no crees?\\n¿En qué puedo ayudarte hoy?"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_nadt2"]
+script = ExtResource("2_02y77")
+texto_opcion = "🛒 Quiero COMPRAR algo"
+id_siguiente_dialogo = &"mercader_menu_comprar"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[sub_resource type="Resource" id="Resource_illc3"]
+script = ExtResource("2_02y77")
+texto_opcion = "💰 Quiero VENDER mis cosechas"
+id_siguiente_dialogo = &"mercader_menu_vender"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[sub_resource type="Resource" id="Resource_02y77"]
+script = ExtResource("2_02y77")
+texto_opcion = "📜 Cuéntame tu historia"
+id_siguiente_dialogo = &"mercader_historia"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[sub_resource type="Resource" id="Resource_p3j76"]
+script = ExtResource("2_02y77")
+texto_opcion = "👋 Nada más, gracias, adiós Don Mercader"
+id_siguiente_dialogo = &"\"\""
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[resource]
+script = ExtResource("1_1o82o")
+id_dialogo = &"mercader_saludo_inicial"
+npc_id_propietario = &"mercader"
+nombre_mostrar_npc = "Don Mercader"
+lineas = Array[Resource]([SubResource("Resource_kbgmb"), SubResource("Resource_08dl6")])
+opciones = Array[Resource]([SubResource("Resource_nadt2"), SubResource("Resource_illc3"), SubResource("Resource_02y77"), SubResource("Resource_p3j76")])
+id_dialogo_siguiente_automatico = &"\"\""
+accion_al_terminar = &"\"\""
+metadata/_custom_type_script = "uid://drfivspcpotc4"

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://borhrvq1fopqa"]
+
+[sub_resource type="Environment" id="Environment_f4g6i"]
+ambient_light_color = Color(0, 0, 0.39215687, 1)
+
+[node name="Luz" type="DirectionalLight3D" unique_id=330590464]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1107571328]
+environment = SubResource("Environment_f4g6i")

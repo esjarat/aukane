@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dsm1aqaa71wtw"]
+
+[ext_resource type="Script" uid="uid://bpm576k5hmims" path="res://scripts/jugador/jugador.gd" id="1_88w12"]
+[ext_resource type="PackedScene" uid="uid://dloej2b3be1x8" path="res://escenes/mundo_base/Camara.tscn" id="2_i6vpn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f4g6i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4g6i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ftxvd"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_kc72v"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f4g6i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kc72v"]
+radius = 1.75
+height = 3.5
+
+[sub_resource type="FontFile" id="FontFile_up5gh"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+
+[node name="Jugador" type="CharacterBody3D" unique_id=1964817002 groups=["jugador"]]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0, 0)
+collision_mask = 32769
+script = ExtResource("1_88w12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2017244314]
+mesh = SubResource("CapsuleMesh_f4g6i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2107098079]
+shape = SubResource("CapsuleShape3D_f4g6i")
+
+[node name="Camera" parent="." unique_id=1923287564 instance=ExtResource("2_i6vpn")]
+transform = Transform3D(14.142136, -8.111596, 11.584559, 0, 16.383041, 11.471529, -14.142136, -8.111596, 11.584559, 20, 20, 20)
+current = true
+size = 2.0
+
+[node name="ModeloHacha" type="MeshInstance3D" parent="." unique_id=832968310]
+transform = Transform3D(0.6762487, -0.7366734, 0, 0.7366734, 0.6762487, 0, 0, 0, 1, -0.5916795, 0.31605786, 0.47328997)
+mesh = SubResource("CapsuleMesh_ftxvd")
+
+[node name="ModeloPico" type="MeshInstance3D" parent="." unique_id=454518660]
+transform = Transform3D(0.6762487, -0.7366734, 0, 0.7366734, 0.6762487, 0, 0, 0, 1, -0.5916795, 0.31605786, -0.49099934)
+mesh = SubResource("BoxMesh_kc72v")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1109886604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8853216, 0.19323498, 0.018457443)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=269539882]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_f4g6i")
+
+[node name="RangoInteraccion" type="Area3D" parent="." unique_id=818494118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0646617, 0.63954055, 0.101851225)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangoInteraccion" unique_id=2042147147]
+shape = SubResource("CapsuleShape3D_kc72v")
+
+[node name="PromptInteraccion" type="Label3D" parent="." unique_id=1836172607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+text = "`HOLA MUNDO` "
+font = SubResource("FontFile_up5gh")
+font_size = 45
+outline_size = 5
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_rango_golpe_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_rango_golpe_body_exited"]

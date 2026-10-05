@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://b71sgodnksewf"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_mapoh"]
+
+[resource]
+script = ExtResource("1_mapoh")
+id = &"azada"
+nombre_visible = "Azada de Madera"
+descripcion = "Herramienta para arar tierra y limpiar parcelas marchitas."
+precio_compra = 0
+precio_venta = 30
+tipo = &"herramienta"
+stack_maximo = 1
+herramienta_tipo = &"azada"
+datos_extra = {
+"durabilidad": 200,
+"eficiencia_arado": 1.0
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

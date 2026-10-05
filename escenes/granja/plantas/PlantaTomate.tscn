@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://djgq5ktgvf4jg"]
+
+[ext_resource type="Script" uid="uid://83kj7257qcul" path="res://scripts/granja/planta_visual.gd" id="1_lmep6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhtdt"]
+albedo_color = Color(0, 0.14351594, 0.0061015473, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lmep6"]
+radius = 0.4
+height = 0.1
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyhxg"]
+albedo_color = Color(2.9480086e-07, 0.29442707, 0.023701891, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f4g6i"]
+radius = 0.05
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy2fl"]
+albedo_color = Color(0, 0.14351594, 0.0061015473, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ftxvd"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3cju"]
+albedo_color = Color(0.705607, 0.17690647, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_fhtdt"]
+material = SubResource("StandardMaterial3D_u3cju")
+
+[node name="PlantaTomate" type="Node3D" unique_id=1584266437 node_paths=PackedStringArray("etapa_0", "etapa_1", "etapa_2", "etapa_3")]
+script = ExtResource("1_lmep6")
+etapa_0 = NodePath("Etapa0")
+etapa_1 = NodePath("Etapa1")
+etapa_2 = NodePath("Etapa2")
+etapa_3 = NodePath("Etapa3")
+
+[node name="Etapa0" type="Node3D" parent="." unique_id=522550413]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Etapa0" unique_id=45819068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_fhtdt")
+mesh = SubResource("SphereMesh_lmep6")
+
+[node name="Etapa1" type="Node3D" parent="." unique_id=1171735173]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Etapa1" unique_id=1772691085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_wyhxg")
+mesh = SubResource("CapsuleMesh_f4g6i")
+
+[node name="Etapa2" type="Node3D" parent="." unique_id=1712081153]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Etapa2" unique_id=2128469477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_jy2fl")
+mesh = SubResource("CapsuleMesh_ftxvd")
+
+[node name="Etapa3" type="Node3D" parent="." unique_id=260950783]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Etapa3" unique_id=1303647598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("SphereMesh_fhtdt")

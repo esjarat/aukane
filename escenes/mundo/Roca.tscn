@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://drcld6yhoo8iy"]
+
+[ext_resource type="Script" uid="uid://tpvk8hbfpksm" path="res://scripts/mundo/roca.gd" id="1_2p0qp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f4g6i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4g6i"]
+
+[node name="Roca" type="StaticBody3D" unique_id=1595069733 groups=["rocas"]]
+script = ExtResource("1_2p0qp")
+cantidad_piedra = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2096546159]
+mesh = SubResource("BoxMesh_f4g6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1581483199]
+transform = Transform3D(0.9516308, -0.30724406, 0, 0.30724406, 0.9516308, 0, 0, 0, 1, 0, 0, 0.13567472)
+mesh = SubResource("BoxMesh_f4g6i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=880845737]
+shape = SubResource("BoxShape3D_f4g6i")

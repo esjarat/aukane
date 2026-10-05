@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://fqq1yyl74yrd"]
+
+[ext_resource type="Script" uid="uid://dp7r81kon2wld" path="res://scripts/ui/crafteo.gd" id="1_dl14c"]
+
+[node name="Crafteo" type="Control" unique_id=2054046771]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 82.0
+offset_right = -616.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dl14c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=612626902]
+layout_mode = 0
+offset_left = 32.000015
+offset_top = 491.0
+offset_right = 1211.9998
+offset_bottom = 1045.0
+scale = Vector2(0.1, 0.1)
+
+[node name="BtnEquiparHacha" type="Button" parent="HBoxContainer" unique_id=1276032859]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 100
+text = "🪓 Hacha"
+
+[node name="BtnEquiparPico" type="Button" parent="HBoxContainer" unique_id=1248517228]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 100
+text = "⛏️ Pico"
+
+[node name="BtnEquiparAzada" type="Button" parent="HBoxContainer" unique_id=773301717]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 100
+text = "⚒️ Azada"
+
+[node name="BtnEquiparRegadera" type="Button" parent="HBoxContainer" unique_id=75403641]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 100
+text = "💧 Regadera"

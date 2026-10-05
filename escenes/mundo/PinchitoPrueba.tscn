@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8e5v6sbxmm3m"]
+
+[ext_resource type="Script" uid="uid://djsd26e31how" path="res://scripts/mundo/pinchito_prueba.gd" id="1_4jp8v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4g6i"]
+size = Vector3(2, 0.3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deqs0"]
+albedo_color = Color(1, 0.1882353, 0.003921569, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f4g6i"]
+size = Vector3(2, 0.1, 2)
+
+[node name="PinchitoPrueba" type="Area3D" unique_id=1347732290]
+script = ExtResource("1_4jp8v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=72187907]
+shape = SubResource("BoxShape3D_f4g6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1189998238]
+material_override = SubResource("StandardMaterial3D_deqs0")
+mesh = SubResource("BoxMesh_f4g6i")

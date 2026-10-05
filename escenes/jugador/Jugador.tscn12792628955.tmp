@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dsm1aqaa71wtw"]
+
+[ext_resource type="Script" uid="uid://bpm576k5hmims" path="res://scripts/jugador/jugador.gd" id="1_88w12"]
+[ext_resource type="PackedScene" uid="uid://dloej2b3be1x8" path="res://escenes/mundo_base/Camara.tscn" id="2_i6vpn"]
+[ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="3_jpw3t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_up5gh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ftxvd"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f4g6i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kc72v"]
+size = Vector3(1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up5gh"]
+albedo_color = Color(0.6446983, 0.3559708, 5.7756904e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f4g6i"]
+material = SubResource("StandardMaterial3D_up5gh")
+size = Vector3(1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftxvd"]
+albedo_color = Color(0.043137256, 0, 0.7764706, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_f4g6i"]
+material = SubResource("StandardMaterial3D_ftxvd")
+size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftxvd"]
+size = Vector3(0.3095703, 0.36669922, 0.6586914)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f4g6i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kc72v"]
+radius = 1.75
+height = 3.5
+
+[sub_resource type="FontFile" id="FontFile_up5gh"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/66/0/ascent = 0.0
+cache/0/66/0/descent = 0.0
+cache/0/66/0/underline_position = 0.0
+cache/0/66/0/underline_thickness = 0.0
+cache/0/66/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ftxvd"]
+size = Vector3(2, 2, 2)
+
+[node name="Jugador" type="CharacterBody3D" unique_id=1964817002 groups=["jugador"]]
+collision_mask = 32769
+script = ExtResource("1_88w12")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2107098079]
+shape = SubResource("CapsuleShape3D_up5gh")
+
+[node name="Camera" parent="." unique_id=1923287564 instance=ExtResource("2_i6vpn")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 15, 18, 15)
+current = true
+size = 20.0
+
+[node name="VisualHolder" type="Node3D" parent="." unique_id=2120141304]
+
+[node name="ModeloHacha" type="MeshInstance3D" parent="VisualHolder" unique_id=832968310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5916795, 0.31605786, 0.47329)
+mesh = SubResource("CapsuleMesh_ftxvd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VisualHolder" unique_id=2017244314]
+mesh = SubResource("CapsuleMesh_f4g6i")
+
+[node name="ModeloPico" type="MeshInstance3D" parent="VisualHolder" unique_id=454518660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5916796, 0.31605786, -0.49099937)
+mesh = SubResource("BoxMesh_kc72v")
+
+[node name="ModeloAzada" type="MeshInstance3D" parent="VisualHolder" unique_id=2099775124]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -0.7412388, 0, -0.2507751)
+mesh = SubResource("BoxMesh_f4g6i")
+
+[node name="ModeloRegadera" type="MeshInstance3D" parent="VisualHolder" unique_id=391954737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1174369, 0.64325595, 0.047261357)
+mesh = SubResource("PrismMesh_f4g6i")
+
+[node name="ContenedorFrente" type="Node3D" parent="VisualHolder" unique_id=1822774247]
+
+[node name="Frente" type="MeshInstance3D" parent="VisualHolder/ContenedorFrente" unique_id=1736872771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0037788749, 0.57778513, 0.2881453)
+mesh = SubResource("BoxMesh_ftxvd")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1109886604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8853216, 0.19323498, 0.018457443)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=269539882]
+shape = SubResource("SphereShape3D_f4g6i")
+
+[node name="RangoInteraccion" type="Area3D" parent="." unique_id=818494118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0646617, 0.63954055, 0.101851225)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangoInteraccion" unique_id=2042147147]
+visible = false
+shape = SubResource("CapsuleShape3D_kc72v")
+
+[node name="PromptInteraccion" type="Label3D" parent="." unique_id=1836172607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+font = SubResource("FontFile_up5gh")
+font_size = 100
+outline_size = 5
+
+[node name="Damageable" type="Node" parent="." unique_id=1722174319]
+script = ExtResource("3_jpw3t")
+
+[node name="HitboxAtaque" type="Area3D" parent="." unique_id=2026816503]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxAtaque" unique_id=1471024796]
+shape = SubResource("BoxShape3D_ftxvd")
+
+[node name="DebugVec" type="Label3D" parent="." unique_id=317189983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+billboard = 1
+modulate = Color(1, 1, 0.03137255, 1)
+outline_modulate = Color(0, 0, 0, 0)
+font_size = 80
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_rango_golpe_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_rango_golpe_body_exited"]

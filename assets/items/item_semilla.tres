@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://cjysc0kq8yg56"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_rkxof"]
+
+[resource]
+script = ExtResource("1_rkxof")
+id = &"semilla"
+nombre_visible = "Semilla Básica"
+descripcion = "Semilla Básica"
+precio_compra = 2
+precio_venta = 1
+tipo = &"semilla"
+stack_maximo = 50
+datos_extra = {
+"cultivo_id": "tomate",
+"max_cosecha": 3,
+"min_cosecha": 1,
+"planta_escena_path": "res://escenes/granja/plantas/PlantaTomate.tscn"
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

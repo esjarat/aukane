@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://btnktn1fce2si"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_kiyea"]
+
+[resource]
+script = ExtResource("1_kiyea")
+id = &"semilla_tomate"
+nombre_visible = "`Semilla de Tomate`"
+precio_compra = 2
+tipo = &"semilla"
+stack_maximo = 50
+datos_extra = {
+"cultivo_id": "tomate",
+"max_cosecha": 4,
+"min_cosecha": 2,
+"planta_escena_path": "res://escenes/granja/plantas/PlantaTomate.tscn"
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

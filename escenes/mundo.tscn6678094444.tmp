@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dxe0a0fx0fx55"]
+
+[ext_resource type="PackedScene" uid="uid://c34ltf3qvhgnq" path="res://escenes/suelo.tscn" id="1_odilv"]
+[ext_resource type="PackedScene" uid="uid://dsm1aqaa71wtw" path="res://escenes/jugador.tscn" id="2_7nc27"]
+[ext_resource type="PackedScene" uid="uid://borhrvq1fopqa" path="res://escenes/luz.tscn" id="3_f4ls1"]
+[ext_resource type="PackedScene" uid="uid://b6mmibsqahtaf" path="res://escenes/LimitesMapa.tscn" id="4_7nc27"]
+[ext_resource type="PackedScene" uid="uid://b46i6odo6xgg4" path="res://escenes/recursoMadera.tscn" id="5_f4ls1"]
+[ext_resource type="PackedScene" uid="uid://cpmkxdgh53ap4" path="res://escenes/ui.tscn" id="6_qc1nd"]
+[ext_resource type="PackedScene" uid="uid://bjxt6e14j3vih" path="res://escenes/recursoPiedra.tscn" id="7_ssi3q"]
+[ext_resource type="PackedScene" uid="uid://btnrcdjuqpqyv" path="res://escenes/recursoOro.tscn" id="8_gq7i5"]
+[ext_resource type="PackedScene" uid="uid://bmv3tjwdwhdi0" path="res://escenes/npc1.tscn" id="9_1ldiu"]
+[ext_resource type="PackedScene" uid="uid://c5hrto3ecs4mf" path="res://escenes/arbol.tscn" id="10_ypcwm"]
+[ext_resource type="PackedScene" uid="uid://drcld6yhoo8iy" path="res://escenes/roca.tscn" id="11_uh15q"]
+
+[node name="Mundo" type="Node3D" unique_id=71614060]
+
+[node name="MeshInstance3D" parent="." unique_id=1386247902 instance=ExtResource("1_odilv")]
+
+[node name="Jugador" parent="." unique_id=1964817002 instance=ExtResource("2_7nc27")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.12591952, 0)
+speed = null
+jump_velocity = null
+
+[node name="Luz" parent="." unique_id=330590464 instance=ExtResource("3_f4ls1")]
+
+[node name="LimitesMapa" parent="." unique_id=407326112 instance=ExtResource("4_7nc27")]
+transform = Transform3D(2.05, 0, 0, 0, 2.05, 0, 0, 0, 2.05, 0, 0, 0)
+
+[node name="RecursoMadera" parent="." unique_id=450393497 instance=ExtResource("5_f4ls1")]
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, 0, 0, 0.61005104)
+
+[node name="RecursoPiedra" parent="." unique_id=673454530 instance=ExtResource("7_ssi3q")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.5704628, 0, 0)
+
+[node name="RecursoOro" parent="." unique_id=1459922292 instance=ExtResource("8_gq7i5")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.71675646, 0, -0.68398213)
+
+[node name="Npc1" parent="." unique_id=1581250385 instance=ExtResource("9_1ldiu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -0.7781842)
+
+[node name="Arbol" parent="." unique_id=845078361 instance=ExtResource("10_ypcwm")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.6278155, 0.14448786, -0.4937446)
+
+[node name="Arbol2" parent="." unique_id=1591658458 instance=ExtResource("10_ypcwm")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.44588894, 0.17338543, -0.59249353)
+
+[node name="Roca" parent="." unique_id=1595069733 instance=ExtResource("11_uh15q")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.63724256, 0.07973671, 0.26953965)
+cantidad_piedra = 10
+
+[node name="Ui" parent="." unique_id=924045597 instance=ExtResource("6_qc1nd")]

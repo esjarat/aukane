@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://b53uf7oqe0k66"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_3x7j3"]
+
+[resource]
+script = ExtResource("1_3x7j3")
+id = &"regadera"
+nombre_visible = "Regadera"
+descripcion = "Herramienta para Regarr"
+precio_compra = 0
+precio_venta = 20
+tipo = &"herramienta"
+stack_maximo = 1
+herramienta_tipo = &"regadera"
+datos_extra = {
+"carga_agua_actual": 0,
+"carga_max_agua": 5
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

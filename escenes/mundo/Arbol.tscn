@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c5hrto3ecs4mf"]
+
+[ext_resource type="Script" uid="uid://sshpwl5v7uk" path="res://scripts/mundo/arbol.gd" id="1_jcet3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f4g6i"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ftxvd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f4g6i"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ftxvd"]
+
+[node name="Arbol" type="StaticBody3D" unique_id=845078361 groups=["arboles"]]
+script = ExtResource("1_jcet3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1022023228]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f4g6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=797064440]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1647489, 0)
+mesh = SubResource("SphereMesh_ftxvd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=388790446]
+shape = SubResource("CylinderShape3D_f4g6i")
+
+[node name="AreaInteraccion" type="Area3D" parent="." unique_id=1672645126 groups=["arboles"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaInteraccion" unique_id=1629064759]
+shape = SubResource("CylinderShape3D_ftxvd")
+
+[connection signal="body_entered" from="AreaInteraccion" to="." method="_on_area_interaccion_body_entered"]
+[connection signal="body_exited" from="AreaInteraccion" to="." method="_on_area_interaccion_body_exited"]

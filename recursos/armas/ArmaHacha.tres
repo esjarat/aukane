@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ArmaDefinicion" format=3 uid="uid://bufrnw1ytynht"]
+
+[ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_vwnud"]
+
+[resource]
+script = ExtResource("1_vwnud")
+nombre = &"hacha"
+nombre_mostrar = "Hacha de Madera"
+"daño" = 18
+alcance_metros = 2.3
+ancho_metros = 1.2
+alto_metros = 1.4
+cooldown_segundos = 0.65
+duracion_activa_ms = 220
+metadata/_custom_type_script = "uid://d2dh1qj471rwg"

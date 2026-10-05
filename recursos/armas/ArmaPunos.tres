@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ArmaDefinicion" format=3 uid="uid://bww0gg7e2dhlo"]
+
+[ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_s8hcf"]
+
+[resource]
+script = ExtResource("1_s8hcf")
+alcance_metros = 1.6
+metadata/_custom_type_script = "uid://d2dh1qj471rwg"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ArmaDefinicion" format=3 uid="uid://btq1g8ax1o8gj"]
+
+[ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_2cxqf"]
+
+[resource]
+script = ExtResource("1_2cxqf")
+nombre = &"regadera"
+nombre_mostrar = "Regadera"
+"daño" = 3
+alcance_metros = 1.4
+ancho_metros = 0.7
+alto_metros = 1.1
+cooldown_segundos = 0.5
+duracion_activa_ms = 150
+metadata/_custom_type_script = "uid://d2dh1qj471rwg"

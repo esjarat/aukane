@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogoDefinicion" format=3 uid="uid://cf2t71k581udq"]
+
+[ext_resource type="Script" uid="uid://drfivspcpotc4" path="res://scripts/npc/dialogo_definicion.gd" id="1_l4kst"]
+[ext_resource type="Script" uid="uid://lxtyea467oc" path="res://scripts/npc/dialogo_linea.gd" id="1_p6agd"]
+
+[sub_resource type="Resource" id="Resource_p6agd"]
+script = ExtResource("1_p6agd")
+texto = "¡Excelente elección! 🎁 Ahora abriré mi tienda para ti…"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[resource]
+script = ExtResource("1_l4kst")
+id_dialogo = &"mercader_menu_comprar"
+npc_id_propietario = &"mercader"
+nombre_mostrar_npc = "Don Mercader"
+lineas = Array[Resource]([SubResource("Resource_p6agd")])
+accion_al_terminar = &"abrir_tienda"
+metadata/_custom_type_script = "uid://drfivspcpotc4"

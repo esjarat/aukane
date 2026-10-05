@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://c60eoq7goacym"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_dkm72"]
+
+[resource]
+script = ExtResource("1_dkm72")
+id = &"madera"
+nombre_visible = "Madera"
+descripcion = "material basico"
+precio_compra = 10
+precio_venta = 3
+metadata/_custom_type_script = "uid://dsvx658u8q448"

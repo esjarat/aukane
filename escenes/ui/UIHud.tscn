@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cpmkxdgh53ap4"]
+
+[ext_resource type="Script" uid="uid://ca6a4357ylgq5" path="res://scripts/ui/ui.gd" id="1_h4pd0"]
+[ext_resource type="PackedScene" uid="uid://fqq1yyl74yrd" path="res://escenes/ui/UICrafteo.tscn" id="2_twt0m"]
+[ext_resource type="PackedScene" uid="uid://bn57t7n0jas21" path="res://escenes/ui/UIDialogo.tscn" id="3_geir3"]
+
+[node name="Ui" type="CanvasLayer" unique_id=924045597 groups=["ui_principal"]]
+script = ExtResource("1_h4pd0")
+
+[node name="LabelMadera" type="Label" parent="." unique_id=1241013253]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 45.0
+offset_bottom = 26.0
+
+[node name="LabelPiedra" type="Label" parent="." unique_id=706315764]
+offset_left = 5.0
+offset_top = 31.0
+offset_right = 45.0
+offset_bottom = 54.0
+
+[node name="LabelOro" type="Label" parent="." unique_id=503109005]
+offset_left = 5.0
+offset_top = 72.0
+offset_right = 45.0
+offset_bottom = 95.0
+
+[node name="LabelSemilla" type="Label" parent="." unique_id=954531354]
+offset_left = 6.0
+offset_top = 103.0
+offset_right = 46.0
+offset_bottom = 126.0
+
+[node name="Crafteo" parent="." unique_id=2054046771 instance=ExtResource("2_twt0m")]
+
+[node name="BarraVidaExterior" type="ColorRect" parent="." unique_id=1352919702]
+anchors_preset = -1
+offset_left = 10.0
+offset_top = 150.0
+offset_right = 260.0
+offset_bottom = 182.0
+color = Color(0.08235294, 0.08235294, 0.08235294, 0.12941177)
+
+[node name="BarraVidaInterior" type="ColorRect" parent="BarraVidaExterior" unique_id=1320901347]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 30.0
+offset_transform_enabled = true
+color = Color(0.7565319, 2.7193873e-06, 9.62615e-07, 1)
+
+[node name="UiDialogo" parent="." unique_id=788192265 instance=ExtResource("3_geir3")]
+visible = false
+anchors_preset = -1
+anchor_top = 0.46
+offset_left = 120.0
+offset_top = 120.0
+offset_bottom = 50.0
+offset_transform_enabled = true

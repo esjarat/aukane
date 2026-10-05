@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://oxgw28vcgvgv"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_legjv"]
+
+[resource]
+script = ExtResource("1_legjv")
+id = &"tomate"
+nombre_visible = "Tomate"
+tipo = &"cultivo"
+datos_extra = {
+"precio_mercado": 5
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

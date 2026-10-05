@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogoDefinicion" format=3 uid="uid://b5rnxwf3n7pwj"]
+
+[ext_resource type="Script" uid="uid://lxtyea467oc" path="res://scripts/npc/dialogo_linea.gd" id="1_tnscl"]
+[ext_resource type="Script" uid="uid://drfivspcpotc4" path="res://scripts/npc/dialogo_definicion.gd" id="1_xfib0"]
+
+[sub_resource type="Resource" id="Resource_c3pxd"]
+script = ExtResource("1_tnscl")
+texto = "¡Hasta pronto, joven! 💨 ¡Cuídate mucho allá afuera con esos slimes."
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[resource]
+script = ExtResource("1_xfib0")
+id_dialogo = &"mercader_despedida"
+npc_id_propietario = &"mercader"
+nombre_mostrar_npc = "Don Mercader"
+lineas = Array[Resource]([SubResource("Resource_c3pxd")])
+accion_al_terminar = &"cerrar"
+metadata/_custom_type_script = "uid://drfivspcpotc4"
