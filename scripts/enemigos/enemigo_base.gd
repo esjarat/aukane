@@ -1,11 +1,15 @@
+class_name EnemigoBase
 # scripts/npc/enemigo_base.gd
 extends CharacterBody3D
-class_name EnemigoBase
 
 # ═══════════════════════════════════════════════════════════════
 # 1) ESTADOS (State Machine - 3 estados)
 # ═══════════════════════════════════════════════════════════════
-enum Estado { PATRULLA, PERSEGUIR, ATACAR }
+enum Estado {
+	PATRULLA,
+	PERSEGUIR,
+	ATACAR,
+}
 
 # ═══════════════════════════════════════════════════════════════
 # 2) EXPORTS CONFIGURABLES POR CADA ENEMIGO EN INSPECTOR
@@ -18,12 +22,16 @@ enum Estado { PATRULLA, PERSEGUIR, ATACAR }
 @export var daño_ataque: int = 12             # Daño por golpe al jugador
 @export var cooldown_entre_ataques: float = 1.35      # Segundos entre golpes
 @export var tiempo_cambio_patrulla: float = 3.0  # Cada X seg cambia dirección random
-
-# ═══════════════════════════════════════════════════════════════
-# 3) NODOS HIJO (referencias por @onready)
-# ═══════════════════════════════════════════════════════════════
-@onready var damageable: Node = $Damageable
-
+@export var id_enemigo: StringName = &""
+@export var drops: Array[Dictionary] = []
+@export var xp_al_morir: int = 0
+# ── FASE 12.3: ESCALADO POR NIVEL ──
+## Nivel del enemigo. El spawner lo sobreescribe al instanciar.
+@export var nivel: int = 1
+## Cuánto SUMA cada nivel extra (nivel 2 = base + 1×incremento). 0 = no escala.
+@export var vida_por_nivel: int = 0
+@export var daño_por_nivel: int = 0
+@export var xp_por_nivel: int = 0
 # ═══════════════════════════════════════════════════════════════
 # 4) VARIABLES INTERNAS FSM
 # ═══════════════════════════════════════════════════════════════
@@ -33,6 +41,12 @@ var _cooldown_ataque_actual: float = 0.0
 var _temporizador_patrulla: float = 0.0
 var _direccion_patrulla: Vector3 = Vector3.FORWARD
 var _esta_muerto: bool = false
+var _vida_base: int = 0   # Vida del .tscn, antes de escalar (FASE 12.3)
+# ═══════════════════════════════════════════════════════════════
+# 3) NODOS HIJO (referencias por @onready)
+# ═══════════════════════════════════════════════════════════════
+@onready var damageable: Node = $Damageable
+
 
 # ═══════════════════════════════════════════════════════════════
 # 5) READY
@@ -46,6 +60,11 @@ func _ready() -> void:
 	# Inicializar dirección de patrulla random
 	_asignar_direccion_patrulla_random()
 	print("[EnemigoBase] ", name, " listo | Estado inicial: PATRULLA")
+	# FASE 12.3: guardamos la vida base del .tscn y aplicamos el escalado.
+	# Los hijos corren _ready() antes que el padre, así que aquí el Damageable
+	# YA inicializó su vida → leer vida_maxima es fiable como base.
+	_vida_base = int(damageable.get("vida_maxima")) if damageable != null else 0
+	_aplicar_nivel()
 
 # ═══════════════════════════════════════════════════════════════
 # 6) _PROCESS: Actualizar cada frame (cooldowns + transiciones FSM)
@@ -71,6 +90,7 @@ func _process(delta: float) -> void:
 
 	# d) TRANSICIONES FSM (reglas)
 	_ejecutar_transiciones_estado()
+
 
 # ═══════════════════════════════════════════════════════════════
 # 7) _PHYSICS_PROCESS: Movimiento (CharacterBody3D necesita physics)
@@ -126,6 +146,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 # ═══════════════════════════════════════════════════════════════
 # 8) FSM: REGLAS DE TRANSICIÓN ENTRE ESTADOS
 # ═══════════════════════════════════════════════════════════════
@@ -154,6 +175,7 @@ func _ejecutar_transiciones_estado() -> void:
 			if dist > rango_ataque:
 				_cambiar_estado(Estado.PERSEGUIR)
 
+
 # ═══════════════════════════════════════════════════════════════
 # 9) FSM: CAMBIAR ESTADO (helper centralizado, no cambio directo)
 # ═══════════════════════════════════════════════════════════════
@@ -164,11 +186,12 @@ func _cambiar_estado(nuevo: int) -> void:
 	estado_actual = nuevo
 	print("[EnemigoBase] ", name, " | ", nombre_anterior, " → ", _nombre_estado(nuevo))
 
+
 # ═══════════════════════════════════════════════════════════════
 # 10) ATAQUE AL JUGADOR (solo en estado ATACAR + cooldown == 0)
 # ═══════════════════════════════════════════════════════════════
 func _intentar_atacar_jugador() -> void:
-	
+
 	if _cooldown_ataque_actual > 0.0:
 		return
 	if _jugador_ref == null:
@@ -182,11 +205,31 @@ func _intentar_atacar_jugador() -> void:
 	print("[EnemigoBase] ", name, " ⚔️ ATACA al jugador! Daño ", daño_ataque)
 
 # ═══════════════════════════════════════════════════════════════
+# 11.b) ESCALADO POR NIVEL (FASE 12.3)
+# ═══════════════════════════════════════════════════════════════
+## Aplica el nivel sobre los valores base. Con nivel 1 no cambia nada.
+func _aplicar_nivel() -> void:
+	var extra: int = maxi(0, nivel - 1)
+	if extra == 0:
+		return
+	# Vida: el dueño es el Damageable (mismo contrato que usa el jugador).
+	if damageable != null and damageable.has_method("set_vida_maxima"):
+		damageable.call("set_vida_maxima", _vida_base + extra * vida_por_nivel)
+	# Daño y XP viven en este nodo.
+	daño_ataque += extra * daño_por_nivel
+	xp_al_morir += extra * xp_por_nivel
+	print("[EnemigoBase] ", name, " nv", nivel, " | vida ", _vida_base + extra * vida_por_nivel,
+		" | daño ", daño_ataque, " | xp ", xp_al_morir)
+# ═══════════════════════════════════════════════════════════════
 # 11) HANDLER MUERTE (conectado desde Damageable)
 # ═══════════════════════════════════════════════════════════════
-func _on_murio(_atacante_path: NodePath) -> void:
+func _on_murio(atacante_path: NodePath) -> void:
 	_esta_muerto = true
 	velocity = Vector3.ZERO
+	# FASE 12.1: la XP va a quien mató (si fue el jugador).
+	Nivel.otorgar_xp_a_atacante(get_node_or_null(atacante_path), xp_al_morir)
+	# FASE 9.1: soltar drops unificados en el punto de muerte (self = excluir del raycast)
+	DropManager.soltar(drops, global_position, null, self)
 	print("[EnemigoBase] 💀 ", name, " MUERE. Desaparezco en 0.4s.")
 	# Tween desvanecer visual + eliminar
 	var tween: Tween = create_tween()
@@ -197,6 +240,10 @@ func _on_murio(_atacante_path: NodePath) -> void:
 	if mesh != null:
 		tween.parallel().tween_property(mesh, "scale", Vector3.ZERO, 0.4)
 	tween.tween_callback(queue_free)
+	# Si el enemigo tiene un id (lo pondrás en cada .tscn), notifica al MisionManager
+	if id_enemigo != &"":
+		MisionManager.actualizar_progreso(&"matar", id_enemigo, 1)
+
 
 # ═══════════════════════════════════════════════════════════════
 # 12) HELPERS PRIVADOS
@@ -206,10 +253,12 @@ func _buscar_jugador() -> void:
 	if nodo_jug != null and nodo_jug is CharacterBody3D:
 		_jugador_ref = nodo_jug as CharacterBody3D
 
+
 func _asignar_direccion_patrulla_random() -> void:
 	# Vector aleatorio en plano XZ (-1 a 1) normalizado, sin eje Y
 	var angulo_rad: float = randf() * TAU
 	_direccion_patrulla = Vector3(cos(angulo_rad), 0.0, sin(angulo_rad)).normalized()
+
 
 func _nombre_estado(e: int) -> String:
 	match e:

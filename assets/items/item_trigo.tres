@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://dbnll1n5sg8gb"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_10qee"]
+[ext_resource type="Texture2D" uid="uid://o24bdmsr37mv" path="res://assets/icons/trigo.png" id="1_dt2r5"]
+
+[resource]
+script = ExtResource("1_10qee")
+id = &"trigo"
+nombre_visible = "Trigo"
+icono = ExtResource("1_dt2r5")
+descripcion = "Trigo"
+tipo = &"cultivo"
+datos_extra = {
+"precio_mercado": 3
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

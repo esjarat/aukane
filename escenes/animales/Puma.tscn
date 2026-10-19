@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bm4y58o2avlwv"]
+
+[ext_resource type="Script" uid="uid://cisoj2vcc2xwc" path="res://scripts/enemigos/enemigo_base.gd" id="1_6ydgo"]
+[ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="1_fb712"]
+[ext_resource type="Script" uid="uid://dc8mkxv2t3orc" path="res://scripts/combate/damageable_barra_3d.gd" id="2_6ydgo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bwvka"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_l6o74"]
+radius = 1.0
+height = 0.8
+radial_segments = 10
+rings = 12
+
+[node name="Puma" type="CharacterBody3D" unique_id=796982052]
+script = ExtResource("1_6ydgo")
+velocidad_patrulla = 1.0
+velocidad_perseguir = 3.6
+rango_deteccion = 12.0
+rango_ataque = 1.8
+distancia_perdida = 22.0
+"daño_ataque" = 15
+cooldown_entre_ataques = 1.15
+id_enemigo = &"puma"
+drops = Array[Dictionary]([{
+"cantidad": 1,
+"cantidad_max": 1,
+"item_id": "colmillo_puma",
+"probabilidad": 0.6
+}])
+xp_al_morir = 20
+vida_por_nivel = 10
+xp_por_nivel = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=638735913]
+shape = SubResource("SphereShape3D_bwvka")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=944800169]
+mesh = SubResource("SphereMesh_l6o74")
+
+[node name="Damageable" type="Node" parent="." unique_id=1734291195]
+script = ExtResource("1_fb712")
+vida_maxima = 50
+
+[node name="ComponenteBarraVida" type="Node3D" parent="." unique_id=2112341653]
+script = ExtResource("2_6ydgo")
+altura_sobre_cabeza = 1.2
+ancho_barra_metros = 2.5
+alto_barra_metros = 2.0
+tamano_fuente_numeros = 262

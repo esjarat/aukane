@@ -15,4 +15,5 @@ npc_id_propietario = &"mercader"
 nombre_mostrar_npc = "Don Mercader"
 lineas = Array[Resource]([SubResource("Resource_swd7g")])
 accion_al_terminar = &"abrir_tienda"
+parametro_accion = 1
 metadata/_custom_type_script = "uid://drfivspcpotc4"

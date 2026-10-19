@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_2cxqf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vawom"]
+albedo_color = Color(0.22658296, 0, 0.89420825, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ey8dx"]
+material = SubResource("StandardMaterial3D_vawom")
+size = Vector3(0.5, 1, 0.5)
+
 [resource]
 script = ExtResource("1_2cxqf")
 nombre = &"regadera"
@@ -12,4 +19,6 @@ ancho_metros = 0.7
 alto_metros = 1.1
 cooldown_segundos = 0.5
 duracion_activa_ms = 150
+malla = SubResource("PrismMesh_ey8dx")
+transform_modelo = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.076, 0.643, -1.381)
 metadata/_custom_type_script = "uid://d2dh1qj471rwg"

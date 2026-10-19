@@ -2,41 +2,99 @@
 
 [ext_resource type="Script" uid="uid://dsg0cqi8a0bb" path="res://scripts/ui/tienda.gd" id="1_lc7ye"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc7ye"]
+bg_color = Color(0.3491902, 0.3133042, 0.42358288, 0.95000005)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9309246, 0.82665706, 0.48452926, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="UITienda" type="Control" unique_id=888222152]
 layout_mode = 3
-anchors_preset = 0
-mouse_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_lc7ye")
 
-[node name="BotonComprarSemilla" type="Button" parent="." unique_id=1092197361]
-layout_mode = 0
-offset_left = 474.0
-offset_top = 311.0
-offset_right = 654.0
-offset_bottom = 371.0
-text = "Comprar Semilla Básica (2 oro)"
+[node name="Fondo" type="ColorRect" parent="." unique_id=1648253633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6)
 
-[node name="BotonCerrar" type="Button" parent="." unique_id=616504658]
-layout_mode = 0
-offset_left = 624.0
-offset_top = 273.0
-offset_right = 654.0
-offset_bottom = 304.0
-theme_override_font_sizes/font_size = 16
-text = "❌"
+[node name="Centrador" type="CenterContainer" parent="Fondo" unique_id=1885815319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="BotonComprarTomate" type="Button" parent="." unique_id=1050925642]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 414.0
-offset_right = 724.0
-offset_bottom = 445.0
-text = "Comprar Semilla Tomate (3 oro)"
+[node name="PanelTienda" type="PanelContainer" parent="Fondo/Centrador" unique_id=650860667]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lc7ye")
 
-[node name="BotonComprarZanahoria" type="Button" parent="." unique_id=883917207]
-layout_mode = 0
-offset_left = 464.0
-offset_top = 375.0
-offset_right = 738.0
-offset_bottom = 406.0
-text = "Comprar Semilla Zanahoria (2 oro)"
+[node name="VBoxPrincipal" type="VBoxContainer" parent="Fondo/Centrador/PanelTienda" unique_id=498667669]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelTitulo" type="Label" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal" unique_id=649709006]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9260749, 0.58383155, 1)
+theme_override_font_sizes/font_size = 28
+text = "Mercado de Don Mercader"
+horizontal_alignment = 1
+
+[node name="LabelOro" type="Label" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal" unique_id=1846033700]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9260749, 0.58383155, 1)
+theme_override_font_sizes/font_size = 20
+text = "💰 Oro: 0"
+horizontal_alignment = 1
+
+[node name="TabContenedor" type="TabContainer" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal" unique_id=1395589863]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+current_tab = 0
+tab_0/title = "🛒 Comprar"
+tab_1/title = "💰 Vender"
+
+[node name="TabComprar" type="ScrollContainer" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal/TabContenedor" unique_id=484425651]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "🛒 Comprar"
+
+[node name="VBoxComprar" type="VBoxContainer" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal/TabContenedor/TabComprar" unique_id=638222944]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabVender" type="ScrollContainer" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal/TabContenedor" unique_id=654102516]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "💰 Vender"
+
+[node name="VBoxVender" type="VBoxContainer" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal/TabContenedor/TabVender" unique_id=941855793]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BotonCerrar" type="Button" parent="Fondo/Centrador/PanelTienda/VBoxPrincipal" unique_id=333926973]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Cerrar tienda [ESC]"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://dkh3h1kdiqj2o"]
+
+[ext_resource type="Texture2D" uid="uid://doykjteefeqj3" path="res://assets/icons/pan.png" id="1_pqny2"]
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_wmxj6"]
+
+[resource]
+script = ExtResource("1_wmxj6")
+id = &"pan"
+nombre_visible = "Pan"
+icono = ExtResource("1_pqny2")
+precio_compra = 18
+precio_venta = 15
+tipo = &"consumible"
+stack_maximo = 20
+hambre_restaurada = 25
+vida_restaurada = 5
+metadata/_custom_type_script = "uid://dsvx658u8q448"

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://bayhcabqvgqt1"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_y77vh"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_jbk4u"]
+
+[sub_resource type="Resource" id="Resource_ycodn"]
+script = ExtResource("1_y77vh")
+item_id = &"madera"
+cantidad = 2
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[sub_resource type="Resource" id="Resource_mbcxu"]
+script = ExtResource("1_y77vh")
+item_id = &"piedra"
+cantidad = 2
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_jbk4u")
+id = &"receta_azada"
+id_resultado = &"azada"
+ingredientes = Array[ExtResource("1_y77vh")]([SubResource("Resource_ycodn"), SubResource("Resource_mbcxu")])
+estacion_requerida = &"banco_trabajo"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

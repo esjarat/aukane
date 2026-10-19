@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ClimaDefinicion" format=3 uid="uid://cbrspg005gye6"]
+
+[ext_resource type="Script" uid="uid://cfsgom6wtm37i" path="res://scripts/recursos/clima_definicion.gd" id="1_sqb4d"]
+
+[resource]
+script = ExtResource("1_sqb4d")
+id = &"lluvioso"
+nombre_visible = "Lluvioso"
+peso = 2.0
+energia_luz = 0.6
+color_ambiente = Color(0.82665706, 0.86504203, 0.9309246, 1)
+factor_oscuridad = 0.35
+particulas = &"lluvia"
+velocidad_viento = 0.3
+riega_cultivos = true
+multiplicador_velocidad_jugador = 0.9
+metadata/_custom_type_script = "uid://cfsgom6wtm37i"

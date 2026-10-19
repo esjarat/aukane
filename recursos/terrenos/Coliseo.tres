@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TipoTerreno" format=3 uid="uid://dece2pv2tu5tl"]
+
+[ext_resource type="Script" uid="uid://myd6f4tmj8ma" path="res://scripts/mundo/tipo_terreno.gd" id="1_7ln70"]
+
+[resource]
+script = ExtResource("1_7ln70")
+id = &"coliseo"
+nombre_visible = "Coliseo"
+color = Color(0.5449209, 0.50638646, 0.58383155, 1)
+es_cultivable = false
+metadata/_custom_type_script = "uid://myd6f4tmj8ma"

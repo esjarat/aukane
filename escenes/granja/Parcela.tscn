@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://pb8inj6aylpp" path="res://scripts/granja/parcela.gd" id="1_hto3u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4g6i"]
-size = Vector3(1, 0.5, 1)
+size = Vector3(2, 0.5, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02h8b"]
 albedo_color = Color(0.3901049, 0.20645413, 4.813075e-08, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kt6a1"]
-size = Vector3(1, 0.5, 1)
+size = Vector3(2, 0.5, 2)
 
 [node name="Parcela" type="StaticBody3D" unique_id=955212135 groups=["parcela"]]
 script = ExtResource("1_hto3u")

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="DialogoDefinicion" format=3 uid="uid://bd3ly5iacjeo8"]
+
+[ext_resource type="Script" uid="uid://drfivspcpotc4" path="res://scripts/npc/dialogo_definicion.gd" id="1_5m7na"]
+[ext_resource type="Script" uid="uid://lxtyea467oc" path="res://scripts/npc/dialogo_linea.gd" id="1_j6sgb"]
+[ext_resource type="Script" uid="uid://7bpii770t7mv" path="res://scripts/npc/dialogo_opcion.gd" id="2_mpt8j"]
+
+[sub_resource type="Resource" id="Resource_5m7na"]
+script = ExtResource("1_j6sgb")
+texto = "¡Oh, qué oportuno! Justo necesito tu ayuda. 🪵"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_mpt8j"]
+script = ExtResource("1_j6sgb")
+texto = "¿Podrías traerme 5 trozos de madera? Te pagaré 20 de oro por el trabajo."
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_sky6a"]
+script = ExtResource("2_mpt8j")
+texto_opcion = "✅ ¡Claro que sí! Acepto el trabajo "
+accion_especial = &"aceptar_mision"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[sub_resource type="Resource" id="Resource_wps7e"]
+script = ExtResource("2_mpt8j")
+texto_opcion = "❌ Ahora no puedo, tal vez luego"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[resource]
+script = ExtResource("1_5m7na")
+id_dialogo = &"mercader_mision"
+npc_id_propietario = &"mercader"
+nombre_mostrar_npc = "Don Mercader"
+lineas = Array[Resource]([SubResource("Resource_5m7na"), SubResource("Resource_mpt8j")])
+opciones = Array[Resource]([SubResource("Resource_sky6a"), SubResource("Resource_wps7e")])
+metadata/_custom_type_script = "uid://drfivspcpotc4"

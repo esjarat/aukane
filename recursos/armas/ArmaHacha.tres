@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_vwnud"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wl8w5"]
+radius = 0.1
+height = 1.0
+
 [resource]
 script = ExtResource("1_vwnud")
 nombre = &"hacha"
@@ -12,4 +16,6 @@ ancho_metros = 1.2
 alto_metros = 1.4
 cooldown_segundos = 0.65
 duracion_activa_ms = 220
+malla = SubResource("CapsuleMesh_wl8w5")
+transform_modelo = Transform3D(1, 0, 0, 0, 0.255, 0.966, 0, -0.967, 0.255, -0.49, 0.316, -0.425)
 metadata/_custom_type_script = "uid://d2dh1qj471rwg"

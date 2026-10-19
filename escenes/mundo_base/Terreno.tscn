@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bgqy62et0bb4t"]
+
+[ext_resource type="Script" uid="uid://b5bewskwkoiwt" path="res://scripts/mundo/gestor_terreno.gd" id="1_tqiy7"]
+
+[node name="Terreno" type="Node3D" unique_id=1389399398]
+script = ExtResource("1_tqiy7")
+celdas = Array[StringName]([&"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba"])
+bioma_pincel = "hierba"
+
+[node name="Visuales" type="Node3D" parent="." unique_id=1361482697]
+
+[node name="Colision" type="StaticBody3D" parent="." unique_id=1467362127]

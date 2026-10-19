@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://p8wkun34kjn"]
+
+[ext_resource type="Script" uid="uid://pbyx723r4f7w" path="res://scripts/ui/mochila.gd" id="1_665as"]
+[ext_resource type="Script" uid="uid://dxgj32iqc21ex" path="res://scripts/ui/crafteo_manual.gd" id="2_svqt5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_665as"]
+bg_color = Color(0.4353445, 0.38109186, 0.52508664, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9260749, 0.58383155, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svqt5"]
+bg_color = Color(0.6180314, 0.5952235, 0.6828842, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.96857667, 0.785777, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UiMochila" type="Control" unique_id=194439992]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_665as")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=540565494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.08400001)
+
+[node name="Centrador" type="CenterContainer" parent="Fondo" unique_id=629848155]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -200.0
+offset_right = 430.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContenedor" type="HBoxContainer" parent="Fondo/Centrador" unique_id=37519867]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PanelMochila" type="PanelContainer" parent="Fondo/Centrador/HBoxContenedor" unique_id=612133046]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_665as")
+
+[node name="VBoxPrincipal" type="VBoxContainer" parent="Fondo/Centrador/HBoxContenedor/PanelMochila" unique_id=2123668951]
+layout_mode = 2
+
+[node name="LabelTitulo" type="Label" parent="Fondo/Centrador/HBoxContenedor/PanelMochila/VBoxPrincipal" unique_id=886562624]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎒 Mochila"
+horizontal_alignment = 1
+
+[node name="ScrollSlots" type="ScrollContainer" parent="Fondo/Centrador/HBoxContenedor/PanelMochila/VBoxPrincipal" unique_id=1161817563]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridSlots" type="GridContainer" parent="Fondo/Centrador/HBoxContenedor/PanelMochila/VBoxPrincipal/ScrollSlots" unique_id=1345325823]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 5
+
+[node name="LabelTooltip" type="Label" parent="Fondo/Centrador/HBoxContenedor/PanelMochila/VBoxPrincipal" unique_id=304180353]
+layout_mode = 2
+
+[node name="BotonCerrar" type="Button" parent="Fondo/Centrador/HBoxContenedor/PanelMochila/VBoxPrincipal" unique_id=814514420]
+layout_mode = 2
+text = "Cerrar [ESC]"
+
+[node name="PanelCrafteoManual" type="PanelContainer" parent="Fondo/Centrador/HBoxContenedor" unique_id=1186676734]
+custom_minimum_size = Vector2(330, 400)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_svqt5")
+script = ExtResource("2_svqt5")
+
+[node name="VBoxPrincipal" type="VBoxContainer" parent="Fondo/Centrador/HBoxContenedor/PanelCrafteoManual" unique_id=1912370056]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LabelTitulo" type="Label" parent="Fondo/Centrador/HBoxContenedor/PanelCrafteoManual/VBoxPrincipal" unique_id=942607724]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.96673995, 0.78818816, 1)
+theme_override_font_sizes/font_size = 20
+text = "Crafteo Manual"
+horizontal_alignment = 1
+
+[node name="ScrollRecetas" type="ScrollContainer" parent="Fondo/Centrador/HBoxContenedor/PanelCrafteoManual/VBoxPrincipal" unique_id=1292019237]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="VBoxRecetas" type="VBoxContainer" parent="Fondo/Centrador/HBoxContenedor/PanelCrafteoManual/VBoxPrincipal/ScrollRecetas" unique_id=1132856771]
+layout_mode = 2
+size_flags_horizontal = 3

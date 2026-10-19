@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://btnktn1fce2si"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_kiyea"]
+[ext_resource type="Texture2D" uid="uid://dygafo3seciv1" path="res://assets/icons/semilla_tomate.png" id="1_sfjsm"]
 
 [resource]
 script = ExtResource("1_kiyea")
 id = &"semilla_tomate"
-nombre_visible = "`Semilla de Tomate`"
+nombre_visible = "Semilla de Tomate"
+icono = ExtResource("1_sfjsm")
+descripcion = "Semilla de Tomate"
 precio_compra = 2
 tipo = &"semilla"
 stack_maximo = 50

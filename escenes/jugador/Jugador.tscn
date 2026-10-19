@@ -3,29 +3,11 @@
 [ext_resource type="Script" uid="uid://bpm576k5hmims" path="res://scripts/jugador/jugador.gd" id="1_88w12"]
 [ext_resource type="PackedScene" uid="uid://dloej2b3be1x8" path="res://escenes/mundo_base/Camara.tscn" id="2_i6vpn"]
 [ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="3_jpw3t"]
+[ext_resource type="Script" uid="uid://cf6m0iimhij1t" path="res://scripts/jugador/stats.gd" id="4_snhjd"]
+[ext_resource type="Script" uid="uid://cgnxlp6qgt5eq" path="res://scripts/jugador/nivel.gd" id="5_vbx88"]
+[ext_resource type="Script" uid="uid://cog0y0d82ogb3" path="res://scripts/jugador/estadisticas.gd" id="6_wl8w5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_up5gh"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ftxvd"]
-radius = 0.1
-height = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_kc72v"]
-size = Vector3(1, 0.1, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up5gh"]
-albedo_color = Color(0.6446983, 0.3559708, 5.7756904e-07, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_f4g6i"]
-material = SubResource("StandardMaterial3D_up5gh")
-size = Vector3(1, 0.1, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftxvd"]
-albedo_color = Color(0.043137256, 0, 0.7764706, 1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_f4g6i"]
-material = SubResource("StandardMaterial3D_ftxvd")
-size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kc72v"]
 radius = 0.05
@@ -35,8 +17,6 @@ height = 0.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftxvd"]
 size = Vector3(1.2, 1.2, 1.2)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_f4g6i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kc72v"]
 radius = 1.75
@@ -90,22 +70,6 @@ size = 20.0
 
 [node name="VisualHolder" type="Node3D" parent="." unique_id=2120141304]
 
-[node name="ModeloHacha" type="MeshInstance3D" parent="VisualHolder" unique_id=832968310]
-transform = Transform3D(1, 0, 0, 0, 0.25562245, 0.96677667, 0, -0.96677667, 0.25562245, -0.49060148, 0.31605786, -0.42557475)
-mesh = SubResource("CapsuleMesh_ftxvd")
-
-[node name="ModeloPico" type="MeshInstance3D" parent="VisualHolder" unique_id=454518660]
-transform = Transform3D(-0.23646837, 0, 0.9716392, 0, 1, 0, -0.9716392, 0, -0.23646837, 0.33193493, 0.31605786, -0.49099937)
-mesh = SubResource("BoxMesh_kc72v")
-
-[node name="ModeloAzada" type="MeshInstance3D" parent="VisualHolder" unique_id=2099775124]
-transform = Transform3D(-0.00045208543, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -0.00045208543, -0.34454077, 0, -0.2507751)
-mesh = SubResource("BoxMesh_f4g6i")
-
-[node name="ModeloRegadera" type="MeshInstance3D" parent="VisualHolder" unique_id=391954737]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07620764, 0.64325595, -1.3814496)
-mesh = SubResource("PrismMesh_f4g6i")
-
 [node name="Debug_FrenteCanonico" type="Node3D" parent="VisualHolder" unique_id=659030961]
 
 [node name="Debug_FrenteMesh" type="MeshInstance3D" parent="VisualHolder/Debug_FrenteCanonico" unique_id=801085269]
@@ -126,11 +90,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VisualHolder/HitboxAtaque" unique_id=1471024796]
 shape = SubResource("BoxShape3D_ftxvd")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1109886604]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=269539882]
-shape = SubResource("SphereShape3D_f4g6i")
+[node name="ModeloArmaActual" type="MeshInstance3D" parent="VisualHolder" unique_id=101108273]
 
 [node name="RangoInteraccion" type="Area3D" parent="." unique_id=818494118]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0646617, 0.63954055, 0.101851225)
@@ -150,5 +110,17 @@ outline_size = 5
 [node name="Damageable" type="Node" parent="." unique_id=1722174319]
 script = ExtResource("3_jpw3t")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_rango_golpe_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_rango_golpe_body_exited"]
+[node name="Stats" type="Node" parent="." unique_id=518263438]
+script = ExtResource("4_snhjd")
+hambre_max = null
+energia_max = null
+consumo_hambre_por_minuto = null
+consumo_energia_por_minuto = null
+danio_por_hambre = null
+segundos_entre_danio_hambre = null
+
+[node name="Nivel" type="Node" parent="." unique_id=1192307881]
+script = ExtResource("5_vbx88")
+
+[node name="Estadisticas" type="Node" parent="." unique_id=1693865863]
+script = ExtResource("6_wl8w5")

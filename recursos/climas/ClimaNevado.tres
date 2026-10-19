@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClimaDefinicion" format=3 uid="uid://jr0oeqqcki4e"]
+
+[ext_resource type="Script" uid="uid://cfsgom6wtm37i" path="res://scripts/recursos/clima_definicion.gd" id="1_vaorp"]
+
+[resource]
+script = ExtResource("1_vaorp")
+id = &"nevado"
+nombre_visible = "Nevado"
+energia_luz = 0.75
+color_ambiente = Color(0.9309246, 0.95468724, 1, 1)
+factor_oscuridad = 0.25
+particulas = &"nieve"
+velocidad_viento = 0.1
+multiplicador_velocidad_jugador = 0.65
+metadata/_custom_type_script = "uid://cfsgom6wtm37i"

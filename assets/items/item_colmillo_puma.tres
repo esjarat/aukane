@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://ckfm3w5f5eufq"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_t6bak"]
+
+[resource]
+script = ExtResource("1_t6bak")
+id = &"colmillo_puma"
+nombre_visible = "Colmillo Puma"
+descripcion = "Colmillo especial para crear armas"
+precio_compra = 100
+precio_venta = 50
+stack_maximo = 50
+metadata/_custom_type_script = "uid://dsvx658u8q448"

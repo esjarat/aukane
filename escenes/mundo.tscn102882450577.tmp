@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dxe0a0fx0fx55"]
+
+[ext_resource type="PackedScene" uid="uid://dsm1aqaa71wtw" path="res://escenes/jugador/Jugador.tscn" id="2_7nc27"]
+[ext_resource type="PackedScene" uid="uid://borhrvq1fopqa" path="res://escenes/mundo_base/Luz.tscn" id="3_f4ls1"]
+[ext_resource type="PackedScene" uid="uid://xuww6phcl6qv" path="res://escenes/mundo_base/EfectosClima.tscn" id="4_3u068"]
+[ext_resource type="PackedScene" uid="uid://b6mmibsqahtaf" path="res://escenes/mundo_base/LimitesMapa.tscn" id="4_7nc27"]
+[ext_resource type="PackedScene" uid="uid://b46i6odo6xgg4" path="res://escenes/mundo/PickupMadera.tscn" id="5_f4ls1"]
+[ext_resource type="PackedScene" uid="uid://cpmkxdgh53ap4" path="res://escenes/ui/UIHud.tscn" id="6_qc1nd"]
+[ext_resource type="PackedScene" uid="uid://btpsn7oyba8f1" path="res://escenes/mundo/PickupPiedra.tscn" id="7_ssi3q"]
+[ext_resource type="PackedScene" uid="uid://btnrcdjuqpqyv" path="res://escenes/mundo/PickupOro.tscn" id="8_gq7i5"]
+[ext_resource type="PackedScene" uid="uid://bmv3tjwdwhdi0" path="res://escenes/npc/Mercado.tscn" id="9_1ldiu"]
+[ext_resource type="PackedScene" uid="uid://c5hrto3ecs4mf" path="res://escenes/mundo/Arbol.tscn" id="10_ypcwm"]
+[ext_resource type="PackedScene" uid="uid://drcld6yhoo8iy" path="res://escenes/mundo/Roca.tscn" id="11_uh15q"]
+[ext_resource type="Resource" uid="uid://c34lj214slwcj" path="res://recursos/misiones/Mision_Madera_1.tres" id="12_cliye"]
+[ext_resource type="PackedScene" uid="uid://4x4nrku1b5yw" path="res://escenes/granja/Parcela.tscn" id="12_uh15q"]
+[ext_resource type="PackedScene" uid="uid://bgpl76n6vuycd" path="res://escenes/granja/Pozo.tscn" id="13_nxnnn"]
+[ext_resource type="PackedScene" uid="uid://8e5v6sbxmm3m" path="res://escenes/mundo/PinchitoPrueba.tscn" id="14_mx34n"]
+[ext_resource type="PackedScene" uid="uid://csu6fyoljpmja" path="res://escenes/mundo/MunecoPractica.tscn" id="15_jtvkk"]
+[ext_resource type="PackedScene" uid="uid://8l4g5mfd2g7m" path="res://escenes/animales/Conejo.tscn" id="18_fje24"]
+[ext_resource type="Script" uid="uid://bcagmyur7i6tm" path="res://scripts/mundo/enemigo_spawner.gd" id="18_qbmkl"]
+[ext_resource type="PackedScene" uid="uid://bgqy62et0bb4t" path="res://escenes/mundo_base/Terreno.tscn" id="19_fje24"]
+[ext_resource type="PackedScene" uid="uid://dxi7pnjdmnere" path="res://escenes/mundo/Cama.tscn" id="19_rdw8e"]
+
+[node name="Mundo" type="Node3D" unique_id=71614060]
+
+[node name="Ui" parent="." unique_id=924045597 instance=ExtResource("6_qc1nd")]
+contadores_hud = null
+
+[node name="Jugador" parent="." unique_id=1964817002 instance=ExtResource("2_7nc27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Luz" parent="." unique_id=330590464 instance=ExtResource("3_f4ls1")]
+
+[node name="EfectosClima" parent="." unique_id=190883252 instance=ExtResource("4_3u068")]
+
+[node name="LimitesMapa" parent="." unique_id=407326112 instance=ExtResource("4_7nc27")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="Madera" parent="." unique_id=450393497 instance=ExtResource("5_f4ls1")]
+transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, -5.5688105, 0.16769075, -3.464396)
+
+[node name="Piedra" parent="." unique_id=673454530 instance=ExtResource("7_ssi3q")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5911393, -0.047575474, -3.8710146)
+
+[node name="Oro" parent="." unique_id=1459922292 instance=ExtResource("8_gq7i5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.4080453, 0, -6.435811)
+
+[node name="Arbol" parent="." unique_id=845078361 instance=ExtResource("10_ypcwm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.2845736, 1, -6.8973517)
+
+[node name="Arbol2" parent="." unique_id=1541684671 instance=ExtResource("10_ypcwm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.088402, 1.4813156, -1.357007)
+
+[node name="Roca" parent="." unique_id=1595069733 instance=ExtResource("11_uh15q")]
+transform = Transform3D(2, 0, 0, 0, 1.8491678, 0.7619568, 0, -0.7619568, 1.8491678, 0.33827925, 1, -6.598233)
+
+[node name="Roca2" parent="." unique_id=165310335 instance=ExtResource("11_uh15q")]
+transform = Transform3D(2, 0, 0, 0, 1.4194218, 1.4089861, 0, -1.4089861, 1.4194218, 1.0148377, 1.2220211, -8.736315)
+
+[node name="Mercado" parent="." unique_id=1581250385 instance=ExtResource("9_1ldiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4.3634887)
+escena_ui_tienda = null
+horario_apertura = null
+horario_cierre = null
+id_dialogo_inicial = null
+mision_ofrecida = ExtResource("12_cliye")
+id_npc = null
+nombre_visible = null
+dialogo_inicial_id = null
+rango_interaccion = null
+
+[node name="Pozo" parent="." unique_id=1556894946 instance=ExtResource("13_nxnnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.095354, 0, -6.6998363)
+
+[node name="Granja" type="Node3D" parent="." unique_id=455093522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.344554, 0, 0)
+
+[node name="Parcela1" parent="Granja" unique_id=955212135 instance=ExtResource("12_uh15q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3633528, 0, 0)
+
+[node name="Parcela22" parent="Granja" unique_id=494798942 instance=ExtResource("12_uh15q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6327248)
+
+[node name="Parcela33" parent="Granja" unique_id=245789269 instance=ExtResource("12_uh15q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.439929)
+
+[node name="Parcela44" parent="Granja" unique_id=1602142608 instance=ExtResource("12_uh15q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4329147, 0, -1.7905388)
+
+[node name="Parcela55" parent="Granja" unique_id=719912155 instance=ExtResource("12_uh15q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4662762, 0, 1.4066119)
+
+[node name="Parcela66" parent="Granja" unique_id=1346291518 instance=ExtResource("12_uh15q")]
+
+[node name="PinchitoPrueba" parent="." unique_id=1347732290 instance=ExtResource("14_mx34n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.565389)
+
+[node name="MunecoPractica" parent="." unique_id=1462395902 instance=ExtResource("15_jtvkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6185012, 0.537662, 8.328563)
+
+[node name="SpawnerSlimes" type="Node3D" parent="." unique_id=1357627442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8392096, 1.1313598, 3.0813513)
+script = ExtResource("18_qbmkl")
+radio_min_spawn = 4.0
+radio_max_spawn = 5.0
+
+[node name="Cama" parent="." unique_id=1463031977 instance=ExtResource("19_rdw8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3027916, 0, 3.9303284)
+
+[node name="SpawnerConejo" type="Node3D" parent="." unique_id=72058501]
+script = ExtResource("18_qbmkl")
+escena_enemigo = ExtResource("18_fje24")
+momento_spawn = 1
+
+[node name="SpawnerCiervo" type="Node3D" parent="." unique_id=1707293813]
+script = ExtResource("18_qbmkl")
+
+[node name="SpawnerPuma" type="Node3D" parent="." unique_id=985686812]
+script = ExtResource("18_qbmkl")
+momento_spawn = 2
+
+[node name="Terreno" parent="." unique_id=1389399398 instance=ExtResource("19_fje24")]
+celdas = Array[StringName]([&"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"arena", &"arena", &"arena", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"arena", &"arena", &"arena", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"agua", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"tierra", &"agua"])
+bioma_pincel = "arena"

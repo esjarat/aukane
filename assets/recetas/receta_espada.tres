@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://c7d6nfmnf6k87"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_ewkb6"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_0m1v4"]
+
+[sub_resource type="Resource" id="Resource_ewkb6"]
+script = ExtResource("1_ewkb6")
+item_id = &"madera"
+cantidad = 2
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[sub_resource type="Resource" id="Resource_0m1v4"]
+script = ExtResource("1_ewkb6")
+item_id = &"colmillo_puma"
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[sub_resource type="Resource" id="Resource_ttsbu"]
+script = ExtResource("1_ewkb6")
+item_id = &"piedra"
+cantidad = 3
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_0m1v4")
+id = &"receta_espada"
+id_resultado = &"espada"
+ingredientes = Array[ExtResource("1_ewkb6")]([SubResource("Resource_ewkb6"), SubResource("Resource_0m1v4"), SubResource("Resource_ttsbu")])
+estacion_requerida = &"banco_trabajo"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

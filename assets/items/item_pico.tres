@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://uht8fw1hpywy"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_587cx"]
+[ext_resource type="Texture2D" uid="uid://d0qwud3ftnt46" path="res://assets/icons/pico.png" id="1_e1dpm"]
 
 [resource]
 script = ExtResource("1_587cx")
 id = &"pico"
 nombre_visible = "Pico de Piedra"
+icono = ExtResource("1_e1dpm")
 descripcion = "Pico de Piedra util para romper Rocas"
 precio_compra = 10
 precio_venta = 3

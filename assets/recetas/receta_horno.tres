@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://p6e7d76v0fuv"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_2rskw"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_nm6a2"]
+
+[sub_resource type="Resource" id="Resource_364ep"]
+script = ExtResource("1_2rskw")
+item_id = &"piedra"
+cantidad = 10
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_nm6a2")
+id = &"receta_horno"
+id_resultado = &"horno"
+ingredientes = Array[ExtResource("1_2rskw")]([SubResource("Resource_364ep")])
+categoria = &"estaciones"
+estacion_requerida = &"banco_trabajo"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

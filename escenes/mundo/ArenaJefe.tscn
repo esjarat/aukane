@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bhr2u23w40wmn"]
+
+[ext_resource type="Script" uid="uid://dmfcx5usgeba7" path="res://scripts/mundo/arena_jefe.gd" id="1_bpdcg"]
+
+[node name="ArenaJefe" type="Node3D" unique_id=447680704]
+script = ExtResource("1_bpdcg")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ArmaDefinicion" format=3 uid="uid://1fthjv1iiqfv"]
+
+[ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_q4ndv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4ndv"]
+size = Vector3(1, 0.1, 0.1)
+
+[resource]
+script = ExtResource("1_q4ndv")
+nombre = &"pala"
+nombre_mostrar = "PalaPuños"
+"daño" = 6
+alcance_metros = 1.6
+ancho_metros = 1.0
+cooldown_segundos = 0.7
+malla = SubResource("BoxMesh_q4ndv")
+transform_modelo = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.344, 0, -0.25)
+metadata/_custom_type_script = "uid://d2dh1qj471rwg"

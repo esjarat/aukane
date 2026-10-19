@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://nl3jgqjce5yq"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_rypqw"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_86l16"]
+
+[sub_resource type="Resource" id="Resource_miucm"]
+script = ExtResource("1_rypqw")
+item_id = &"madera"
+cantidad = 6
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[sub_resource type="Resource" id="Resource_rivij"]
+script = ExtResource("1_rypqw")
+item_id = &"piedra"
+cantidad = 4
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_86l16")
+id = &"receta_molino"
+id_resultado = &"molino"
+ingredientes = Array[ExtResource("1_rypqw")]([SubResource("Resource_miucm"), SubResource("Resource_rivij")])
+categoria = &"estaciones"
+estacion_requerida = &"banco_trabajo"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

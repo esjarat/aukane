@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClimaDefinicion" format=3 uid="uid://qw4ntrrqh5b2"]
+
+[ext_resource type="Script" uid="uid://cfsgom6wtm37i" path="res://scripts/recursos/clima_definicion.gd" id="1_dfm7d"]
+
+[resource]
+script = ExtResource("1_dfm7d")
+id = &"ventoso"
+nombre_visible = "Ventoso"
+peso = 2.0
+energia_luz = 0.9
+color_ambiente = Color(0.95468724, 0.95468724, 0.9309246, 1)
+factor_oscuridad = 0.1
+velocidad_viento = 1.0
+metadata/_custom_type_script = "uid://cfsgom6wtm37i"

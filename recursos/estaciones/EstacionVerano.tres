@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EstacionDefinicion" format=3 uid="uid://c84oks4d7l8af"]
+
+[ext_resource type="Script" uid="uid://syq23843dreu" path="res://scripts/recursos/estacion_definicion.gd" id="1_8k37g"]
+
+[resource]
+script = ExtResource("1_8k37g")
+id = &"verano"
+nombre_visible = "Verano"
+orden = 2
+multiplicadores_peso = {
+"lluvioso": 0.4,
+"nevado": 1.0,
+"soleado": 2.0,
+"ventoso": 1.0
+}
+multiplicador_crecimiento_cultivos = 1.3
+emoji_hud = "☀️"
+metadata/_custom_type_script = "uid://syq23843dreu"

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://djrdbao34rwsr"]
 
+[ext_resource type="Texture2D" uid="uid://c4m72ytmjpfiv" path="res://assets/icons/semilla_zanahoria.png" id="1_axcch"]
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_yjcmd"]
 
 [resource]
 script = ExtResource("1_yjcmd")
 id = &"semilla_zanahoria"
-nombre_visible = "`Semilla de Zanahoria`"
-descripcion = "`Semilla de Zanahoria`"
+nombre_visible = "Semilla de Zanahoria"
+icono = ExtResource("1_axcch")
+descripcion = "Semilla de Zanahoria"
 precio_compra = 2
 tipo = &"semilla"
 stack_maximo = 50

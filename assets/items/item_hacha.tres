@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://bus1mcl78gpbn"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_0h6vi"]
+[ext_resource type="Texture2D" uid="uid://cw2adragd1o65" path="res://assets/icons/hacha.png" id="1_hgtfb"]
 
 [resource]
 script = ExtResource("1_0h6vi")
 id = &"hacha"
 nombre_visible = "Hacha de Madera"
+icono = ExtResource("1_hgtfb")
 descripcion = "Hacha de Madera"
 precio_compra = 0
 precio_venta = 10

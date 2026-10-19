@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CatalogoTienda" format=3 uid="uid://c4digc3f748c7"]
+
+[ext_resource type="Script" uid="uid://dt5hck2sn4a08" path="res://scripts/recursos/item_tienda.gd" id="1_l11n7"]
+[ext_resource type="Script" uid="uid://db4j267g5uryg" path="res://scripts/recursos/catalogo_tienda.gd" id="2_w4ffj"]
+
+[sub_resource type="Resource" id="Resource_l11n7"]
+script = ExtResource("1_l11n7")
+id_item = &"semilla"
+precio_compra_jugador = 2
+precio_venta_jugador = 1
+metadata/_custom_type_script = "uid://dt5hck2sn4a08"
+
+[sub_resource type="Resource" id="Resource_w4ffj"]
+script = ExtResource("1_l11n7")
+id_item = &"semilla_tomate"
+precio_compra_jugador = 3
+precio_venta_jugador = 1
+metadata/_custom_type_script = "uid://dt5hck2sn4a08"
+
+[sub_resource type="Resource" id="Resource_fa8v6"]
+script = ExtResource("1_l11n7")
+id_item = &"semilla_zanahoria"
+precio_compra_jugador = 2
+precio_venta_jugador = 1
+metadata/_custom_type_script = "uid://dt5hck2sn4a08"
+
+[sub_resource type="Resource" id="Resource_mj15j"]
+script = ExtResource("1_l11n7")
+id_item = &"tomate"
+precio_compra_jugador = 5
+precio_venta_jugador = 2
+metadata/_custom_type_script = "uid://dt5hck2sn4a08"
+
+[sub_resource type="Resource" id="Resource_0f8ky"]
+script = ExtResource("1_l11n7")
+id_item = &"zanahoria"
+precio_compra_jugador = 4
+precio_venta_jugador = 2
+metadata/_custom_type_script = "uid://dt5hck2sn4a08"
+
+[sub_resource type="Resource" id="Resource_dt2r5"]
+script = ExtResource("1_l11n7")
+id_item = &"semilla_trigo"
+precio_compra_jugador = 2
+metadata/_custom_type_script = "uid://dt5hck2sn4a08"
+
+[resource]
+script = ExtResource("2_w4ffj")
+id_catalogo = &"catalogo_mercader"
+nombre_tienda = "Mercado de Don Mercader"
+items = Array[ExtResource("1_l11n7")]([SubResource("Resource_l11n7"), SubResource("Resource_w4ffj"), SubResource("Resource_fa8v6"), SubResource("Resource_mj15j"), SubResource("Resource_0f8ky"), SubResource("Resource_dt2r5")])
+metadata/_custom_type_script = "uid://db4j267g5uryg"

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bbjgg4g1he363"]
+
+[ext_resource type="Script" uid="uid://coih0cqwoktar" path="res://scripts/animales/animal_base.gd" id="1_c8pc6"]
+[ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="2_y5l4h"]
+[ext_resource type="Script" uid="uid://dc8mkxv2t3orc" path="res://scripts/combate/damageable_barra_3d.gd" id="3_y5l4h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y2rv7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8rp41"]
+
+[node name="Ciervo" type="CharacterBody3D" unique_id=632518174]
+script = ExtResource("1_c8pc6")
+id_animal = &"ciervo"
+drops = Array[Dictionary]([{
+"cantidad": 0,
+"cantidad_max": 2,
+"item_id": "carne_ciervo",
+"probabilidad": 0.8
+}])
+xp_al_morir = 10
+vida_por_nivel = 5
+xp_por_nivel = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=64049559]
+shape = SubResource("SphereShape3D_y2rv7")
+
+[node name="VisualHolder" type="Node3D" parent="." unique_id=1640183255]
+
+[node name="Mesh" type="MeshInstance3D" parent="VisualHolder" unique_id=71635760]
+mesh = SubResource("SphereMesh_8rp41")
+
+[node name="Damageable" type="Node" parent="." unique_id=1461849872]
+script = ExtResource("2_y5l4h")
+vida_maxima = 20
+
+[node name="ComponenteBarraVida" type="Node3D" parent="." unique_id=1486958732]
+script = ExtResource("3_y5l4h")
+altura_sobre_cabeza = 1.2
+ancho_barra_metros = 2.5
+alto_barra_metros = 2.0
+tamano_fuente_numeros = 262

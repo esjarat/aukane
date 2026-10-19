@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ArmaDefinicion" format=3 uid="uid://ek247gsr0w8s"]
+
+[ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_5htmr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5htmr"]
+albedo_color = Color(0.9776916, 0.89624393, 0.5370987, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5htmr"]
+material = SubResource("StandardMaterial3D_5htmr")
+size = Vector3(0.14, 1, 0.14)
+
+[resource]
+script = ExtResource("1_5htmr")
+nombre = &"espada_legendaria"
+nombre_mostrar = "Filo del Coliseo"
+"daño" = 45
+alcance_metros = 2.8
+ancho_metros = 1.0
+alto_metros = 1.4
+cooldown_segundos = 0.45
+duracion_activa_ms = 220
+velocidad_proyectil = 0.0
+malla = SubResource("BoxMesh_5htmr")
+transform_modelo = Transform3D(1, 0, 0, 0, 0.256, -0.967, 0, 0.967, 0.256, -0.491, 0.316, -0.426)
+metadata/_custom_type_script = "uid://d2dh1qj471rwg"

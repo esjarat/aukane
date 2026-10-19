@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://dla12uxj1lwm6"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_wl13t"]
+
+[resource]
+script = ExtResource("1_wl13t")
+id = &"carne_conejo"
+nombre_visible = "Carne Conejo cruda"
+descripcion = "Carne Conejo cruda"
+precio_compra = 20
+precio_venta = 5
+tipo = &"consumible"
+hambre_restaurada = 8
+metadata/_custom_type_script = "uid://dsvx658u8q448"

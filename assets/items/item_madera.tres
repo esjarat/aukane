@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://c60eoq7goacym"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_dkm72"]
+[ext_resource type="Texture2D" uid="uid://crmqbqrnha8h" path="res://assets/icons/madera.png" id="1_gtyw3"]
 
 [resource]
 script = ExtResource("1_dkm72")
 id = &"madera"
 nombre_visible = "Madera"
+icono = ExtResource("1_gtyw3")
+emoji_hud = "🪵"
 descripcion = "material basico"
 precio_compra = 10
 precio_venta = 3

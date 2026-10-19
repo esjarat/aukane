@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cub00oecmjhey"]
+
+[ext_resource type="Script" uid="uid://lqtgkwkulnv4" path="res://scripts/ui/hotbar.gd" id="1_rare2"]
+
+[node name="UiHotbar" type="Control" unique_id=629589378]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rare2")
+
+[node name="Centrador" type="CenterContainer" parent="." unique_id=5372073]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -84.0
+offset_right = -40.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="HBoxSlots" type="HBoxContainer" parent="Centrador" unique_id=1495767106]
+layout_mode = 2
+theme_override_constants/separation = 6

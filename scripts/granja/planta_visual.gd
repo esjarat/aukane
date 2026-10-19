@@ -1,5 +1,5 @@
-extends Node3D
 class_name PlantaVisual
+extends Node3D
 
 @export var etapa_0: Node3D
 @export var etapa_1: Node3D
@@ -7,6 +7,7 @@ class_name PlantaVisual
 @export var etapa_3: Node3D
 
 var _ultima_etapa_mostrada: int = -1
+
 
 func _ready() -> void:
 	var etapas_faltantes: Array[String] = []
@@ -17,6 +18,7 @@ func _ready() -> void:
 	if etapas_faltantes.size() > 0:
 		push_warning("[PlantaVisual] Faltan etapas por asignar en el Inspector: " + str(etapas_faltantes))
 	_mostrar_etapa(0)
+
 
 func set_progreso(progreso_0_1: float) -> void:
 	var etapa_indice: int = 0
@@ -31,7 +33,13 @@ func set_progreso(progreso_0_1: float) -> void:
 	if etapa_indice != _ultima_etapa_mostrada:
 		_mostrar_etapa(etapa_indice)
 		_ultima_etapa_mostrada = etapa_indice
-		print("[PlantaVisual] Progreso ", round(progreso_0_1*100), "% → cambio a etapa ", etapa_indice)
+		print(
+			"[PlantaVisual] Progreso ",
+			round(progreso_0_1 * 100),
+			"% → cambio a etapa ",
+			etapa_indice,
+		)
+
 
 func _mostrar_etapa(indice: int) -> void:
 	var etapas: Array[Node3D] = [etapa_0, etapa_1, etapa_2, etapa_3]

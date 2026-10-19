@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://cmjc0fu42ly0m"]
 
+[ext_resource type="Texture2D" uid="uid://d8wps2sj8755" path="res://assets/icons/zanahoria.png" id="1_heedv"]
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_uiyd8"]
 
 [resource]
 script = ExtResource("1_uiyd8")
 id = &"zanahoria"
 nombre_visible = "Zanahoria"
+icono = ExtResource("1_heedv")
+precio_compra = 4
 tipo = &"cultivo"
 datos_extra = {
 "precio_mercado": 3
 }
+hambre_restaurada = 8
 metadata/_custom_type_script = "uid://dsvx658u8q448"

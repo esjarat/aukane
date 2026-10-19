@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://8d16oxbehb5h"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_s5inh"]
+[ext_resource type="Texture2D" uid="uid://b74hjuihsgwxg" path="res://assets/icons/piedra.png" id="1_wqrwu"]
 
 [resource]
 script = ExtResource("1_s5inh")
 id = &"piedra"
 nombre_visible = "Piedra"
+icono = ExtResource("1_wqrwu")
+emoji_hud = "🪨"
 descripcion = "Piedra"
 precio_compra = 12
 precio_venta = 4

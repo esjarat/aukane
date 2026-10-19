@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://c8lq718f8xjmr"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_12uqf"]
+
+[resource]
+script = ExtResource("1_12uqf")
+id = &"colmillo_jefe"
+nombre_visible = "Colmillo de Jefe"
+emoji_hud = "🦷"
+descripcion = "Trofeo arrancado al guardián del coliseo."
+precio_compra = 0
+precio_venta = 150
+stack_maximo = 5
+metadata/_custom_type_script = "uid://dsvx658u8q448"

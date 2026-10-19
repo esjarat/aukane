@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ArmaDefinicion" format=3 uid="uid://ccmyctptd0pai"]
+
+[ext_resource type="Script" uid="uid://d2dh1qj471rwg" path="res://scripts/recursos/arma_definicion.gd" id="1_b70ww"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vwnud"]
+size = Vector3(0.06, 1, 0.06)
+
+[resource]
+script = ExtResource("1_b70ww")
+nombre = &"arco"
+nombre_mostrar = "Arco Corto"
+"daño" = 35
+alcance_metros = 0.0
+ancho_metros = 0.0
+alto_metros = 0.0
+cooldown_segundos = 0.9
+duracion_activa_ms = 0
+es_a_distancia = true
+id_municion = &"flecha"
+malla = SubResource("BoxMesh_vwnud")
+transform_modelo = Transform3D(1, 0, 0, 0, 0.255, 0.966, 0, -0.966, 0.255, -0.49, 0.316, -0.425)
+metadata/_custom_type_script = "uid://d2dh1qj471rwg"

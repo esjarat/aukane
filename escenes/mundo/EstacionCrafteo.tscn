@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dtpc6y8xcjodt"]
+
+[ext_resource type="Script" uid="uid://do18f83ar0knp" path="res://scripts/mundo/estacion_crafteo.gd" id="1_tp7dl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3yhvm"]
+size = Vector3(1.5, 1, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tp7dl"]
+size = Vector3(1.5, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp7dl"]
+albedo_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tp7dl"]
+radius = 2.0
+
+[node name="EstacionCrafteo" type="StaticBody3D" unique_id=1922741117]
+script = ExtResource("1_tp7dl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1424133926]
+shape = SubResource("BoxShape3D_3yhvm")
+
+[node name="MeshEstacion" type="MeshInstance3D" parent="." unique_id=1282932285]
+mesh = SubResource("BoxMesh_tp7dl")
+surface_material_override/0 = SubResource("StandardMaterial3D_tp7dl")
+
+[node name="AreaInteraccion" type="Area3D" parent="." unique_id=1553591405]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaInteraccion" unique_id=309990187]
+shape = SubResource("SphereShape3D_tp7dl")
+
+[connection signal="body_exited" from="AreaInteraccion" to="." method="_on_area_interaccion_body_exited"]

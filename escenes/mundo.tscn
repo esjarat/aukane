@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dxe0a0fx0fx55"]
 
-[ext_resource type="PackedScene" uid="uid://c34ltf3qvhgnq" path="res://escenes/mundo_base/Suelo.tscn" id="1_odilv"]
 [ext_resource type="PackedScene" uid="uid://dsm1aqaa71wtw" path="res://escenes/jugador/Jugador.tscn" id="2_7nc27"]
 [ext_resource type="PackedScene" uid="uid://borhrvq1fopqa" path="res://escenes/mundo_base/Luz.tscn" id="3_f4ls1"]
+[ext_resource type="PackedScene" uid="uid://xuww6phcl6qv" path="res://escenes/mundo_base/EfectosClima.tscn" id="4_3u068"]
 [ext_resource type="PackedScene" uid="uid://b6mmibsqahtaf" path="res://escenes/mundo_base/LimitesMapa.tscn" id="4_7nc27"]
 [ext_resource type="PackedScene" uid="uid://b46i6odo6xgg4" path="res://escenes/mundo/PickupMadera.tscn" id="5_f4ls1"]
 [ext_resource type="PackedScene" uid="uid://cpmkxdgh53ap4" path="res://escenes/ui/UIHud.tscn" id="6_qc1nd"]
@@ -11,25 +11,34 @@
 [ext_resource type="PackedScene" uid="uid://bmv3tjwdwhdi0" path="res://escenes/npc/Mercado.tscn" id="9_1ldiu"]
 [ext_resource type="PackedScene" uid="uid://c5hrto3ecs4mf" path="res://escenes/mundo/Arbol.tscn" id="10_ypcwm"]
 [ext_resource type="PackedScene" uid="uid://drcld6yhoo8iy" path="res://escenes/mundo/Roca.tscn" id="11_uh15q"]
-[ext_resource type="PackedScene" uid="uid://4x4nrku1b5yw" path="res://escenes/granja/Parcela.tscn" id="12_uh15q"]
 [ext_resource type="PackedScene" uid="uid://bgpl76n6vuycd" path="res://escenes/granja/Pozo.tscn" id="13_nxnnn"]
 [ext_resource type="PackedScene" uid="uid://8e5v6sbxmm3m" path="res://escenes/mundo/PinchitoPrueba.tscn" id="14_mx34n"]
 [ext_resource type="PackedScene" uid="uid://csu6fyoljpmja" path="res://escenes/mundo/MunecoPractica.tscn" id="15_jtvkk"]
+[ext_resource type="PackedScene" uid="uid://cqc58u4cuskgo" path="res://escenes/npc/JefeSlime.tscn" id="18_ienfg"]
+[ext_resource type="Script" uid="uid://bcagmyur7i6tm" path="res://scripts/mundo/enemigo_spawner.gd" id="18_qbmkl"]
+[ext_resource type="PackedScene" uid="uid://bgqy62et0bb4t" path="res://escenes/mundo_base/Terreno.tscn" id="19_fje24"]
+[ext_resource type="PackedScene" uid="uid://dxi7pnjdmnere" path="res://escenes/mundo/Cama.tscn" id="19_rdw8e"]
+[ext_resource type="Script" uid="uid://cqdyq6blflcer" path="res://scripts/granja/gestor_huerto.gd" id="20_3u068"]
+[ext_resource type="PackedScene" uid="uid://bhr2u23w40wmn" path="res://escenes/mundo/ArenaJefe.tscn" id="20_fje24"]
 
 [node name="Mundo" type="Node3D" unique_id=71614060]
 
 [node name="Ui" parent="." unique_id=924045597 instance=ExtResource("6_qc1nd")]
-
-[node name="Suelo" parent="." unique_id=1386247902 instance=ExtResource("1_odilv")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+contadores_hud = Array[StringName]([])
 
 [node name="Jugador" parent="." unique_id=1964817002 instance=ExtResource("2_7nc27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cooldown_ataque = null
+_duracion_activar_hitbox_ms = null
+"_daño_ataque" = null
+rango_golpe_recurso = null
 
 [node name="Luz" parent="." unique_id=330590464 instance=ExtResource("3_f4ls1")]
 
+[node name="EfectosClima" parent="." unique_id=190883252 instance=ExtResource("4_3u068")]
+visible = false
+
 [node name="LimitesMapa" parent="." unique_id=407326112 instance=ExtResource("4_7nc27")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="Madera" parent="." unique_id=450393497 instance=ExtResource("5_f4ls1")]
 transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, -5.5688105, 0.16769075, -3.464396)
@@ -43,38 +52,63 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.4080453, 0, -6.435811
 [node name="Arbol" parent="." unique_id=845078361 instance=ExtResource("10_ypcwm")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.2845736, 1, -6.8973517)
 
+[node name="Arbol2" parent="." unique_id=1541684671 instance=ExtResource("10_ypcwm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.088402, 1.4813156, -1.357007)
+
 [node name="Roca" parent="." unique_id=1595069733 instance=ExtResource("11_uh15q")]
 transform = Transform3D(2, 0, 0, 0, 1.8491678, 0.7619568, 0, -0.7619568, 1.8491678, 0.33827925, 1, -6.598233)
-cantidad_piedra = 10
 
-[node name="Mercado" parent="." unique_id=1581250385 instance=ExtResource("9_1ldiu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4.3634887)
+[node name="Roca2" parent="." unique_id=165310335 instance=ExtResource("11_uh15q")]
+transform = Transform3D(2, 0, 0, 0, 1.4194218, 1.4089861, 0, -1.4089861, 1.4194218, 1.0148377, 1.2220211, -8.736315)
 
 [node name="Pozo" parent="." unique_id=1556894946 instance=ExtResource("13_nxnnn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.095354, 0, -6.6998363)
 
-[node name="Granja" type="Node3D" parent="." unique_id=455093522]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.344554, 0, 0)
-
-[node name="Parcela1" parent="Granja" unique_id=955212135 instance=ExtResource("12_uh15q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3633528, 0, 0)
-
-[node name="Parcela22" parent="Granja" unique_id=494798942 instance=ExtResource("12_uh15q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6327248)
-
-[node name="Parcela33" parent="Granja" unique_id=245789269 instance=ExtResource("12_uh15q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.439929)
-
-[node name="Parcela44" parent="Granja" unique_id=1602142608 instance=ExtResource("12_uh15q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4329147, 0, -1.7905388)
-
-[node name="Parcela55" parent="Granja" unique_id=719912155 instance=ExtResource("12_uh15q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4662762, 0, 1.4066119)
-
-[node name="Parcela66" parent="Granja" unique_id=1346291518 instance=ExtResource("12_uh15q")]
+[node name="Mercado" parent="." unique_id=1581250385 instance=ExtResource("9_1ldiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4159122, 0.9982033, 0)
 
 [node name="PinchitoPrueba" parent="." unique_id=1347732290 instance=ExtResource("14_mx34n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.565389)
 
 [node name="MunecoPractica" parent="." unique_id=1462395902 instance=ExtResource("15_jtvkk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6185012, 0.537662, 8.328563)
+
+[node name="SpawnerSlimes" type="Node3D" parent="." unique_id=1357627442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8392096, 1.1313598, 3.0813513)
+script = ExtResource("18_qbmkl")
+radio_min_spawn = 4.0
+radio_max_spawn = 5.0
+nivel_max = 2
+
+[node name="Cama" parent="." unique_id=1463031977 instance=ExtResource("19_rdw8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3027916, 0, 3.9303284)
+
+[node name="SpawnerConejo" type="Node3D" parent="." unique_id=72058501]
+script = ExtResource("18_qbmkl")
+momento_spawn = 1
+
+[node name="SpawnerCiervo" type="Node3D" parent="." unique_id=1707293813]
+script = ExtResource("18_qbmkl")
+nivel_max = 2
+
+[node name="SpawnerPuma" type="Node3D" parent="." unique_id=985686812]
+script = ExtResource("18_qbmkl")
+momento_spawn = 2
+nivel_min = 2
+nivel_max = 3
+
+[node name="Terreno" parent="." unique_id=1389399398 instance=ExtResource("19_fje24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+alto_celdas = 15
+celdas = Array[StringName]([&"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"hierba", &"agua", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo", &"coliseo"])
+bioma_pincel = "coliseo"
+
+[node name="JefeSlime" parent="." unique_id=1989099940 instance=ExtResource("18_ienfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 15)
+inicia_dormido = true
+
+[node name="ArenaJefe" parent="." unique_id=447680704 instance=ExtResource("20_fje24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Huerto" type="Node3D" parent="." unique_id=1889792558]
+script = ExtResource("20_3u068")

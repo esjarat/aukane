@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://dr6rpxucwnu0t"]
 
+[ext_resource type="Texture2D" uid="uid://dd68txx7fykja" path="res://assets/icons/moneda.png" id="1_2opd1"]
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_yqakf"]
 
 [resource]
 script = ExtResource("1_yqakf")
 id = &"oro"
 nombre_visible = "Oro"
+icono = ExtResource("1_2opd1")
+emoji_hud = "🪙"
 descripcion = "moneda basica de compra"
 precio_venta = 1
 stack_maximo = 999

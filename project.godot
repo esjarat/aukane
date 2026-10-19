@@ -21,11 +21,21 @@ GameState="*uid://bo3yjokoqptyc"
 ItemDatabase="*uid://bbpfwxi03d0v5"
 Inventario="*uid://dmqybjemyatof"
 DialogoDatabase="*uid://eldwiwbxc3ml"
+MisionManager="*uid://cberbag3ojkjy"
+CrafteoManager="*uid://bbkexkvcbcucs"
+GestorTiempo="*uid://s7pcnksa45ou"
+GestorClima="*uid://cu3typ87jhud4"
+DropManager="*uid://bj43ostcrxxeh"
+RespawnManager="*uid://bvlc7idrv17sb"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdstyle/plugin.cfg", "res://addons/pincel_terreno/plugin.cfg")
 
 [global_group]
 

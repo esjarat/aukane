@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://dhr1dac3w67k3"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_0fyfs"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_yg1j1"]
+
+[sub_resource type="Resource" id="Resource_0fyfs"]
+script = ExtResource("1_0fyfs")
+item_id = &"madera"
+cantidad = 4
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[sub_resource type="Resource" id="Resource_yg1j1"]
+script = ExtResource("1_0fyfs")
+item_id = &"cuero"
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_yg1j1")
+id = &"receta_arco"
+id_resultado = &"arco"
+ingredientes = Array[ExtResource("1_0fyfs")]([SubResource("Resource_0fyfs"), SubResource("Resource_yg1j1")])
+estacion_requerida = &"banco_trabajo"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bmv3tjwdwhdi0"]
 
 [ext_resource type="Script" uid="uid://4nqxwa6egj6c" path="res://scripts/npc/npc_tienda.gd" id="1_44i5f"]
+[ext_resource type="Resource" uid="uid://c4digc3f748c7" path="res://recursos/catalogos/Catalogo_Mercader.tres" id="2_hqsvd"]
+[ext_resource type="Resource" uid="uid://c34lj214slwcj" path="res://recursos/misiones/Mision_Madera_1.tres" id="3_dupio"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f4g6i"]
 radius = 0.3
@@ -13,6 +15,8 @@ radius = 1.0
 
 [node name="Mercado" type="StaticBody3D" unique_id=1581250385]
 script = ExtResource("1_44i5f")
+catalogo_asignado = ExtResource("2_hqsvd")
+mision_ofrecida = ExtResource("3_dupio")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1953541166]
 mesh = SubResource("CapsuleMesh_f4g6i")

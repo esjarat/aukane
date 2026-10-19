@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dxi7pnjdmnere"]
+
+[ext_resource type="Script" uid="uid://dymyhje3s5eft" path="res://scripts/mundo/cama.gd" id="1_duo8j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8rp41"]
+size = Vector3(2, 0.6, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxaoa"]
+albedo_color = Color(1, 0.20784314, 0.11372549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8rp41"]
+size = Vector3(2, 0.6, 1)
+
+[node name="Cama" type="StaticBody3D" unique_id=1463031977 groups=["interactuables"]]
+script = ExtResource("1_duo8j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=940742530]
+shape = SubResource("BoxShape3D_8rp41")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=96487573]
+material_override = SubResource("StandardMaterial3D_sxaoa")
+mesh = SubResource("BoxMesh_8rp41")

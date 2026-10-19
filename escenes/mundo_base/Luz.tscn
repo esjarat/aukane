@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://borhrvq1fopqa"]
 
+[ext_resource type="Script" uid="uid://bnotr2n7c1ebx" path="res://scripts/mundo/ciclo_dia_noche.gd" id="1_g6tdm"]
+
 [sub_resource type="Environment" id="Environment_f4g6i"]
+background_mode = 1
+background_color = Color(0.15170373, 0.15170373, 0.24780053, 1)
 ambient_light_color = Color(0, 0, 0.39215687, 1)
 
 [node name="Luz" type="DirectionalLight3D" unique_id=330590464]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
 shadow_enabled = true
+script = ExtResource("1_g6tdm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1107571328]
 environment = SubResource("Environment_f4g6i")

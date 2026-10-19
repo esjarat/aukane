@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://cgb8q33u7yft8"]
+
+[ext_resource type="Texture2D" uid="uid://6cat62whr4b3" path="res://assets/icons/cuero.png" id="1_6c2j8"]
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="2_7224k"]
+
+[resource]
+script = ExtResource("2_7224k")
+id = &"cuero"
+nombre_visible = "Piel de animal curtida"
+icono = ExtResource("1_6c2j8")
+descripcion = "cuero"
+precio_compra = 10
+precio_venta = 3
+metadata/_custom_type_script = "uid://dsvx658u8q448"

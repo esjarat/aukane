@@ -11,9 +11,11 @@ const DIRECTORIO_DIALOGOS: String = "res://recursos/dialogos/"
 # Key: id_dialogo StringName → Value: DialogoDefinicion (la instancia Resource cargada)
 var _dialogos_por_id: Dictionary = {}
 
+
 func _ready() -> void:
 	_cargar_todos_dialogos_desde_carpeta()
 	print("[DialogoDB] ✅ Cargados %d diálogos desde %s" % [_dialogos_por_id.size(), DIRECTORIO_DIALOGOS])
+
 
 # ──────────────────────────────────────────────────────────────
 # CARGA (igual que Armas: escaneo carpeta, 0 hardcode
@@ -23,7 +25,7 @@ func _cargar_todos_dialogos_desde_carpeta() -> void:
 	# Siempre incluye "." y ".." — filtramos con if nombre_archivo.begins_with(".")
 	var dir: DirAccess = DirAccess.open(DIRECTORIO_DIALOGOS)
 	if dir == null:
-		push_warning("[DialogoDB] ⚠️ NO EXISTE el directorio: " + DIRECTORIO_DIALOGOS + " | Error de DirAccess: " + str ( int (DirAccess. get_open_error ())))
+		push_warning("[DialogoDB] ⚠️ NO EXISTE el directorio: " + DIRECTORIO_DIALOGOS + " | Error de DirAccess: " + str( int(DirAccess. get_open_error())))
 		return
 
 	# Godot 4.x: NO arguments
@@ -51,6 +53,7 @@ func _cargar_todos_dialogos_desde_carpeta() -> void:
 		nombre_archivo = dir.get_next()
 	dir.list_dir_end()
 
+
 # ──────────────────────────────────────────────────────────────
 # API PÚBLICA (usa esta desde NPC / UI)
 # ──────────────────────────────────────────────────────────────
@@ -59,6 +62,7 @@ func get_dialogo(p_id_dialogo: StringName) -> DialogoDefinicion:
 		return _dialogos_por_id[p_id_dialogo]
 	push_warning("[DialogoDB] ❓ No existe diálogo con ID: " + String(p_id_dialogo))
 	return null
+
 
 func existe_dialogo(p_id_dialogo: StringName) -> bool:
 	return _dialogos_por_id.has(p_id_dialogo)

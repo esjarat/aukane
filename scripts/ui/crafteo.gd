@@ -1,92 +1,158 @@
 extends Control
 
-@onready var btn_hacha: Button = $HBoxContainer/BtnEquiparHacha
-@onready var btn_pico: Button  = $HBoxContainer/BtnEquiparPico
-@onready var btn_azada: Button  = $HBoxContainer/BtnEquiparAzada
-@onready var btn_regadera: Button  = $HBoxContainer/BtnEquiparRegadera
+# ═══════════════════════════════════════════════════════════════
+# UI CRAFTEO DATA-DRIVEN
+# Muestra las recetas de una estación concreta y permite craftear.
+# Recibe el tipo de estación y el nodo owner (la estación) vía
+# asignar_estacion().
+# ═══════════════════════════════════════════════════════════════
+
+@onready var _label_titulo: Label = $Fondo/Centrador/PanelCrafteo/VBoxPrincipal/LabelTitulo
+@onready var _vbox_recetas: VBoxContainer = $Fondo/Centrador/PanelCrafteo/VBoxPrincipal/ScrollRecetas/VBoxRecetas
+@onready var _btn_cerrar: Button = $Fondo/Centrador/PanelCrafteo/VBoxPrincipal/BotonCerrar
+
+var _tipo_estacion: StringName = &""
+var _estacion_owner: Node = null
+var _generador_iconos: IconoItem = null
 
 func _ready() -> void:
-	btn_hacha.pressed.connect(_on_hacha_pressed)
-	btn_pico.pressed.connect(_on_pico_pressed)
-	btn_azada.pressed.connect(_on_azada_pressed)
-	btn_regadera.pressed.connect(_on_regadera_pressed)
-	# Actualizamos por señal también, no por _process
-	Inventario.inventario_cambiado.connect(_actualizar_botones)
-	Inventario.herramienta_equipada_cambiada.connect(func(_a, _b): _actualizar_botones())
-	_actualizar_botones()
+	_generador_iconos = IconoItem.new()
+	add_child(_generador_iconos)
+	if not _btn_cerrar.pressed.is_connected(_on_btn_cerrar_pressed):
+		_btn_cerrar.pressed.connect(_on_btn_cerrar_pressed)
+	# Refrescar colores cuando cambia el inventario
+	Inventario.inventario_cambiado.connect(_construir_ui)
 
-# Ya no usamos _process() 🙌
-func _actualizar_botones() -> void:
-	# --- HACHA ---
-	if not Inventario.tiene_item(&"hacha", 1):
-		btn_hacha.modulate = Color(0.4, 0.4, 0.4, 1)  # Gris = no la tienes
-	else:
-		if Inventario.herramienta_equipada == &"hacha":
-			btn_hacha.modulate = Color(0.2, 1.0, 0.2, 1)  # Verde = equipada
-		else:
-			btn_hacha.modulate = Color(1.0, 1.0, 1.0, 1)  # Normal = lista
+# ──────────────────────────────────────────────────────────────
+# API: Asignar estación y owner (lo llama estacion_crafteo.gd)
+# ──────────────────────────────────────────────────────────────
+func asignar_estacion(p_estacion: StringName, p_owner: Node) -> void:
+	_tipo_estacion = p_estacion
+	_estacion_owner = p_owner
+	_construir_ui()
 
-	# --- PICO ---
-	if not Inventario.tiene_item(&"pico", 1):
-		btn_pico.modulate = Color(0.4, 0.4, 0.4, 1)
-	else:
-		if Inventario.herramienta_equipada == &"pico":
-			btn_pico.modulate = Color(0.2, 1.0, 0.2, 1)
-		else:
-			btn_pico.modulate = Color(1.0, 1.0, 1.0, 1)
+# ──────────────────────────────────────────────────────────────
+# Construir la lista de recetas
+# ──────────────────────────────────────────────────────────────
+func _construir_ui() -> void:
+	_limpiar_recetas()
 
-	# --- AZADA --- ⭐ NUEVO
-	if not Inventario.tiene_item(&"azada", 1):
- 	# Si NO la tienes: Gris 
-		btn_azada.modulate = Color(0.4, 0.4, 0.4, 1)
-	else: 
-		# Si la tienes: BLANCO si NO equipada / VERDE si SÍ equipada 
-		if Inventario.herramienta_equipada == &"azada":
-			btn_azada.modulate = Color(0.2, 1.0, 0.2, 1)
-		else:
-			btn_azada.modulate = Color(1.0, 1.0, 1.0, 1)
-			
-	# --- REGADERA --- ⭐ NUEVO
-	if not Inventario.tiene_item(&"regadera", 1):
- 	# Si NO la tienes: Gris 
-		btn_regadera.modulate = Color(0.4, 0.4, 0.4, 1)
-	else: 
-		# Si la tienes: BLANCO si NO equipada / VERDE si SÍ equipada 
-		if Inventario.herramienta_equipada == &"regadera":
-			btn_regadera.modulate = Color(0.2, 1.0, 0.2, 1)
-		else:
-			btn_regadera.modulate = Color(1.0, 1.0, 1.0, 1)
-			
-func _on_hacha_pressed() -> void:
-	if not Inventario.tiene_item(&"hacha", 1):
-		if Inventario.craftear("hacha"):
-			Inventario.equipar_herramienta(&"hacha")
-	else:
-		Inventario.equipar_herramienta(&"hacha")
+	var nombre_estacion: String = String(_tipo_estacion)
+	if _estacion_owner != null and "nombre_visible" in _estacion_owner:
+		nombre_estacion = _estacion_owner.nombre_visible
+	_label_titulo.text = "Crafteo — " + nombre_estacion
 
-func _on_pico_pressed() -> void:
-	if not Inventario.tiene_item(&"pico", 1):
-		if Inventario.craftear("pico"):
-			Inventario.equipar_herramienta(&"pico")
-	else:
-		Inventario.equipar_herramienta(&"pico")
-		
-func _on_azada_pressed() -> void:
-	if not Inventario.tiene_item(&"azada", 1):
-		# NO la tienes → INTENTAS CRAFTEARLA
-		if Inventario.craftear("azada"):
-			# Si crafteo OK → equiparla inmediatamente (mejor UX)
-			Inventario.equipar_herramienta(&"azada")
-	else:
-		# SÍ la tienes → TOGGLE equipar/desequipar
-		Inventario.equipar_herramienta(&"azada")
-		
-func _on_regadera_pressed() -> void:
-	if not Inventario.tiene_item(&"regadera", 1):
-		# NO la tienes → INTENTAS CRAFTEARLA
-		if Inventario.craftear("regadera"):
-			# Si crafteo OK → equiparla inmediatamente (mejor UX)
-			Inventario.equipar_herramienta(&"regadera")
-	else:
-		# SÍ la tienes → TOGGLE equipar/desequipar
-		Inventario.equipar_herramienta(&"regadera")
+	var recetas: Array[RecetaCrafteo] = CrafteoManager.get_recetas_por_estacion(_tipo_estacion)
+	for receta in recetas:
+		var fila: PanelContainer = _crear_fila_receta(receta)
+		_vbox_recetas.add_child(fila)
+
+func _limpiar_recetas() -> void:
+	for hijo in _vbox_recetas.get_children():
+		hijo.queue_free()
+
+# ──────────────────────────────────────────────────────────────
+# Crear una fila de receta (icono + nombre + ingredientes + botón)
+# ──────────────────────────────────────────────────────────────
+func _crear_fila_receta(p_receta: RecetaCrafteo) -> PanelContainer:
+	var panel: PanelContainer = PanelContainer.new()
+	panel.custom_minimum_size = Vector2(0, 60)
+	# Estilo de la fila
+	var sb: StyleBoxFlat = StyleBoxFlat.new()
+	sb.bg_color = Color(0.12, 0.1, 0.18, 0.85)
+	sb.border_color = Color(0.4, 0.35, 0.2, 0.7)
+	sb.border_width_left = 1
+	sb.border_width_top = 1
+	sb.border_width_right = 1
+	sb.border_width_bottom = 1
+	sb.corner_radius_top_left = 4
+	sb.corner_radius_top_right = 4
+	sb.corner_radius_bottom_right = 4
+	sb.corner_radius_bottom_left = 4
+	panel.add_theme_stylebox_override("panel", sb)
+
+	var hbox: HBoxContainer = HBoxContainer.new()
+	hbox.add_theme_constant_override("separation", 10)
+	panel.add_child(hbox)
+
+	# 1) Icono del resultado (mismo patrón que mochila.gd: Button con icon)
+	var def_resultado: ItemDefinicion = ItemDatabase.get_item(p_receta.id_resultado)
+	if def_resultado != null:
+		var btn_icono: Button = Button.new()
+		btn_icono.custom_minimum_size = Vector2(40, 40)
+		btn_icono.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		btn_icono.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		btn_icono.flat = true
+		btn_icono.disabled = true
+		btn_icono.focus_mode = Control.FOCUS_NONE
+		btn_icono.icon = _generador_iconos.get_icono(def_resultado)
+		btn_icono.expand_icon = true
+		btn_icono.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		hbox.add_child(btn_icono)
+
+	# 2) Columna central: nombre + ingredientes
+	var vbox_info: VBoxContainer = VBoxContainer.new()
+	vbox_info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	hbox.add_child(vbox_info)
+
+	var nombre_resultado: String = str(p_receta.id_resultado)
+	if def_resultado != null:
+		nombre_resultado = def_resultado.nombre_visible
+	var lbl_nombre: Label = Label.new()
+	lbl_nombre.text = "%s  x%d" % [nombre_resultado, p_receta.cantidad_resultado]
+	lbl_nombre.add_theme_color_override("font_color", Color(1, 0.926, 0.584, 1))
+	lbl_nombre.add_theme_font_size_override("font_size", 18)
+	lbl_nombre.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	vbox_info.add_child(lbl_nombre)
+
+	# Ingredientes
+	var hbox_ing: HBoxContainer = HBoxContainer.new()
+	hbox_ing.add_theme_constant_override("separation", 8)
+	vbox_info.add_child(hbox_ing)
+
+	for ing in p_receta.ingredientes:
+		var lbl_ing: Label = Label.new()
+		var nombre_ing: String = str(ing.item_id)
+		var def_ing: ItemDefinicion = ItemDatabase.get_item(ing.item_id)
+		if def_ing != null:
+			nombre_ing = def_ing.nombre_visible
+		var disponible: int = CrafteoManager.get_disponible_ingrediente(ing)
+		var color: Color = Color(0.4, 0.9, 0.4, 1) if disponible >= ing.cantidad else Color(0.9, 0.4, 0.4, 1)
+		lbl_ing.text = "%s %d/%d" % [nombre_ing, disponible, ing.cantidad]
+		lbl_ing.add_theme_color_override("font_color", color)
+		lbl_ing.add_theme_font_size_override("font_size", 13)
+		lbl_ing.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		lbl_ing.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		hbox_ing.add_child(lbl_ing)
+
+	# 3) Botón Craftear
+	var btn_craftear: Button = Button.new()
+	btn_craftear.text = "Craftear"
+	btn_craftear.custom_minimum_size = Vector2(110, 44)
+	btn_craftear.add_theme_font_size_override("font_size", 16)
+	btn_craftear.disabled = not CrafteoManager.puede_craftear(p_receta)
+	btn_craftear.pressed.connect(_on_craftear_pressed.bind(p_receta))
+	hbox.add_child(btn_craftear)
+	
+	return panel
+
+# ──────────────────────────────────────────────────────────────
+# Acciones
+# ──────────────────────────────────────────────────────────────
+func _on_craftear_pressed(p_receta: RecetaCrafteo) -> void:
+	var ok: bool = CrafteoManager.craftear(p_receta)
+	if ok:
+		# Refrescar toda la UI (colores de ingredientes + botones)
+		_construir_ui()
+
+func _on_btn_cerrar_pressed() -> void:
+	if _estacion_owner != null and _estacion_owner.has_method("cerrar_ui"):
+		_estacion_owner.cerrar_ui()
+
+# Cerrar con ESC
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		var k: InputEventKey = event as InputEventKey
+		if k.pressed and not k.echo and k.keycode == KEY_ESCAPE:
+			_on_btn_cerrar_pressed()
+			get_viewport().set_input_as_handled()

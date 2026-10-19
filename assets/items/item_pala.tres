@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://b32v8lv8m4dwl"]
+
+[ext_resource type="Texture2D" uid="uid://dbimbumpx8rlv" path="res://assets/icons/pala.png" id="1_tlnaa"]
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_y1ts3"]
+
+[resource]
+script = ExtResource("1_y1ts3")
+id = &"pala"
+nombre_visible = "Pala de Cultivo"
+icono = ExtResource("1_tlnaa")
+descripcion = "Herramienta para preparar el terreno de cultivo."
+precio_compra = 100
+precio_venta = 30
+tipo = &"herramienta"
+stack_maximo = 1
+herramienta_tipo = &"pala"
+crea_parcela = true
+metadata/_custom_type_script = "uid://dsvx658u8q448"

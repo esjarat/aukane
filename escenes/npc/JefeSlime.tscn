@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cqc58u4cuskgo"]
+
+[ext_resource type="Script" uid="uid://ckuryyb2lybxw" path="res://scripts/enemigos/jefe_base.gd" id="1_6vefa"]
+[ext_resource type="Script" uid="uid://7bquwim5fpct" path="res://scripts/recursos/fase_definicion.gd" id="2_6vjeb"]
+[ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="2_f4fxp"]
+[ext_resource type="Script" uid="uid://dc8mkxv2t3orc" path="res://scripts/combate/damageable_barra_3d.gd" id="3_6vjeb"]
+[ext_resource type="Script" uid="uid://dfqtvaafti328" path="res://scripts/recursos/recompensa_item.gd" id="3_fu8y5"]
+
+[sub_resource type="Resource" id="Resource_fje24"]
+script = ExtResource("2_6vjeb")
+nombre = "Normal"
+metadata/_custom_type_script = "uid://7bquwim5fpct"
+
+[sub_resource type="Resource" id="Resource_3u068"]
+script = ExtResource("2_6vjeb")
+nombre = "Enfurecido"
+umbral_vida = 0.6
+mult_velocidad = 1.4000000000000001
+"mult_daño" = 1.5
+mult_cooldown = 0.7999999999999999
+usa_area = true
+usa_carga = true
+metadata/_custom_type_script = "uid://7bquwim5fpct"
+
+[sub_resource type="Resource" id="Resource_u76bh"]
+script = ExtResource("2_6vjeb")
+nombre = "Frenesi"
+umbral_vida = 0.25
+mult_velocidad = 1.8
+"mult_daño" = 2.0
+mult_cooldown = 0.6
+usa_area = true
+usa_carga = true
+metadata/_custom_type_script = "uid://7bquwim5fpct"
+
+[sub_resource type="Resource" id="Resource_6r3xt"]
+script = ExtResource("3_fu8y5")
+id_item = &"espada_legendaria"
+metadata/_custom_type_script = "uid://dfqtvaafti328"
+
+[sub_resource type="Resource" id="Resource_6vjeb"]
+script = ExtResource("3_fu8y5")
+id_item = &"cuero"
+metadata/_custom_type_script = "uid://dfqtvaafti328"
+
+[sub_resource type="Resource" id="Resource_fu8y5"]
+script = ExtResource("3_fu8y5")
+id_item = &"oro"
+cantidad = 300
+metadata/_custom_type_script = "uid://dfqtvaafti328"
+
+[sub_resource type="Resource" id="Resource_xklif"]
+script = ExtResource("3_fu8y5")
+id_item = &"colmillo_jefe"
+metadata/_custom_type_script = "uid://dfqtvaafti328"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4g6i"]
+radius = 0.45
+height = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjbhu"]
+albedo_color = Color(0, 0.7348626, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qi2d1"]
+height = 1.0
+
+[node name="JefeSlime" type="CharacterBody3D" unique_id=1989099940]
+collision_layer = 5
+script = ExtResource("1_6vefa")
+fases = Array[ExtResource("2_6vjeb")]([SubResource("Resource_fje24"), SubResource("Resource_3u068"), SubResource("Resource_u76bh")])
+recompensas = Array[ExtResource("3_fu8y5")]([SubResource("Resource_6r3xt"), SubResource("Resource_6vjeb"), SubResource("Resource_fu8y5"), SubResource("Resource_xklif")])
+velocidad_perseguir = 1.8
+rango_deteccion = 14.0
+rango_ataque = 1.3
+distancia_perdida = 25.0
+"daño_ataque" = 5
+id_enemigo = &"jefe_slime"
+drops = Array[Dictionary]([{}])
+xp_al_morir = 120
+vida_por_nivel = 30
+"daño_por_nivel" = 4
+xp_por_nivel = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=333501780]
+shape = SubResource("CapsuleShape3D_f4g6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1734257954]
+material_override = SubResource("StandardMaterial3D_hjbhu")
+mesh = SubResource("CapsuleMesh_qi2d1")
+
+[node name="Damageable" type="Node" parent="." unique_id=481128321]
+script = ExtResource("2_f4fxp")
+vida_maxima = 400
+
+[node name="ComponenteBarraVida" type="Node3D" parent="." unique_id=2049627597]
+script = ExtResource("3_6vjeb")
+altura_sobre_cabeza = 2.5
+ancho_barra_metros = 4.0
+alto_barra_metros = 1.6
+tamano_fuente_numeros = 262

@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://oxgw28vcgvgv"]
 
+[ext_resource type="Texture2D" uid="uid://cvjkuodcpr7ru" path="res://assets/icons/tomate.png" id="1_8t304"]
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_legjv"]
 
 [resource]
 script = ExtResource("1_legjv")
 id = &"tomate"
 nombre_visible = "Tomate"
+icono = ExtResource("1_8t304")
+precio_compra = 3
 tipo = &"cultivo"
 datos_extra = {
 "precio_mercado": 5
 }
+hambre_restaurada = 10
 metadata/_custom_type_script = "uid://dsvx658u8q448"

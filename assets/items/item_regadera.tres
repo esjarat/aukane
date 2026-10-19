@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://b53uf7oqe0k66"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_3x7j3"]
+[ext_resource type="Texture2D" uid="uid://voy0mc1makw3" path="res://Imagenes/regadera.png" id="1_vfo5v"]
 
 [resource]
 script = ExtResource("1_3x7j3")
 id = &"regadera"
 nombre_visible = "Regadera"
+icono = ExtResource("1_vfo5v")
 descripcion = "Herramienta para Regarr"
 precio_compra = 0
 precio_venta = 20

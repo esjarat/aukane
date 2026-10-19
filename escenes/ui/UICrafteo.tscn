@@ -2,52 +2,73 @@
 
 [ext_resource type="Script" uid="uid://dp7r81kon2wld" path="res://scripts/ui/crafteo.gd" id="1_dl14c"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl14c"]
+bg_color = Color(0.6253981, 0.5952235, 0.6828842, 0.95000005)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95468724, 0.9063318, 0.735357, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Crafteo" type="Control" unique_id=2054046771]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 82.0
-offset_right = -616.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_dl14c")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=612626902]
-layout_mode = 0
-offset_left = 32.000015
-offset_top = 491.0
-offset_right = 1211.9998
-offset_bottom = 1045.0
-scale = Vector2(0.1, 0.1)
+[node name="Fondo" type="ColorRect" parent="." unique_id=812815281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
 
-[node name="BtnEquiparHacha" type="Button" parent="HBoxContainer" unique_id=1276032859]
-custom_minimum_size = Vector2(120, 50)
+[node name="Centrador" type="CenterContainer" parent="Fondo" unique_id=1295587808]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelCrafteo" type="PanelContainer" parent="Fondo/Centrador" unique_id=281796977]
+custom_minimum_size = Vector2(620, 520)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dl14c")
+
+[node name="VBoxPrincipal" type="VBoxContainer" parent="Fondo/Centrador/PanelCrafteo" unique_id=694467335]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelTitulo" type="Label" parent="Fondo/Centrador/PanelCrafteo/VBoxPrincipal" unique_id=1719183120]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9639762, 0.785777, 1)
+theme_override_font_sizes/font_size = 28
+text = "Crafteo"
+horizontal_alignment = 1
+
+[node name="ScrollRecetas" type="ScrollContainer" parent="Fondo/Centrador/PanelCrafteo/VBoxPrincipal" unique_id=1596014162]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="VBoxRecetas" type="VBoxContainer" parent="Fondo/Centrador/PanelCrafteo/VBoxPrincipal/ScrollRecetas" unique_id=1629801342]
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_scale = Vector2(0.1, 0.1)
-theme_override_font_sizes/font_size = 100
-text = "🪓 Hacha"
 
-[node name="BtnEquiparPico" type="Button" parent="HBoxContainer" unique_id=1248517228]
-custom_minimum_size = Vector2(120, 50)
+[node name="BotonCerrar" type="Button" parent="Fondo/Centrador/PanelCrafteo/VBoxPrincipal" unique_id=1806981769]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 100
-text = "⛏️ Pico"
-
-[node name="BtnEquiparAzada" type="Button" parent="HBoxContainer" unique_id=773301717]
-custom_minimum_size = Vector2(120, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 100
-text = "⚒️ Azada"
-
-[node name="BtnEquiparRegadera" type="Button" parent="HBoxContainer" unique_id=75403641]
-custom_minimum_size = Vector2(120, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 100
-text = "💧 Regadera"
+theme_override_font_sizes/font_size = 18
+text = "Cerrar [ESC]"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://dc07l7hruhtj6"]
+
+[ext_resource type="Texture2D" uid="uid://bjhse40es2q81" path="res://assets/icons/harina.png" id="1_0byku"]
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_4y16g"]
+
+[resource]
+script = ExtResource("1_4y16g")
+id = &"harina"
+nombre_visible = "Harina"
+icono = ExtResource("1_0byku")
+descripcion = "Harina"
+precio_compra = 10
+precio_venta = 3
+metadata/_custom_type_script = "uid://dsvx658u8q448"

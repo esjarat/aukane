@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Mision" format=3 uid="uid://c34lj214slwcj"]
+
+[ext_resource type="Script" uid="uid://oiy8kdkoxg8u" path="res://scripts/recursos/mision.gd" id="1_lfrga"]
+
+[resource]
+script = ExtResource("1_lfrga")
+id_mision = &"mision_madera_1"
+nombre = "Leña para el invierno"
+descripcion = "Don Mercader necesita 5 trozos de madera para construir un nuevo mostrador."
+id_objetivo = &"madera"
+cantidad_objetivo = 5
+recompensa_oro = 20
+metadata/_custom_type_script = "uid://oiy8kdkoxg8u"

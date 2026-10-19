@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://byi4cvdky526x"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_2sso7"]
+[ext_resource type="Texture2D" uid="uid://b4xtg5ijvfelh" path="res://assets/icons/semilla_trigo.png" id="1_nofpl"]
+
+[resource]
+script = ExtResource("1_2sso7")
+id = &"semilla_trigo"
+nombre_visible = "Semilla Trigo"
+icono = ExtResource("1_nofpl")
+descripcion = "Semilla Trigo"
+precio_compra = 2
+tipo = &"semilla"
+stack_maximo = 50
+datos_extra = {
+"cultivo_id": "trigo",
+"max_cosecha": 5,
+"min_cosecha": 2,
+"planta_escena_path": "res://escenes/granja/plantas/PlantaZanahoria.tscn",
+"segundos_crecimiento": 10
+}
+metadata/_custom_type_script = "uid://dsvx658u8q448"

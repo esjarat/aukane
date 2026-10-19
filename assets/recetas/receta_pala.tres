@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://dla64rd4cxj24"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_ld0mh"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_0a86q"]
+
+[sub_resource type="Resource" id="Resource_fje24"]
+script = ExtResource("1_ld0mh")
+item_id = &"madera"
+cantidad = 2
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[sub_resource type="Resource" id="Resource_3u068"]
+script = ExtResource("1_ld0mh")
+item_id = &"piedra"
+cantidad = 2
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_0a86q")
+id = &"receta_pala"
+id_resultado = &"pala"
+ingredientes = Array[ExtResource("1_ld0mh")]([SubResource("Resource_fje24"), SubResource("Resource_3u068")])
+estacion_requerida = &"banco_trabajo"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

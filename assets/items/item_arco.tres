@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://dmob0jbscpurc"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_uuwo4"]
+
+[resource]
+script = ExtResource("1_uuwo4")
+id = &"arco"
+nombre_visible = "Arco Corto"
+descripcion = "Dispara flechas. Consume 1 flecha por disparo."
+precio_compra = 40
+precio_venta = 10
+tipo = &"herramienta"
+stack_maximo = 1
+herramienta_tipo = &"arco"
+metadata/_custom_type_script = "uid://dsvx658u8q448"

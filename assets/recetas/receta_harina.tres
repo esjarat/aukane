@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://dj00ety35fi85"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_p6ubq"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_dk8ld"]
+
+[sub_resource type="Resource" id="Resource_dl14c"]
+script = ExtResource("1_p6ubq")
+item_id = &"trigo"
+cantidad = 5
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_dk8ld")
+id = &"receta_harina"
+id_resultado = &"harina"
+ingredientes = Array[ExtResource("1_p6ubq")]([SubResource("Resource_dl14c")])
+categoria = &"comida"
+estacion_requerida = &"molino"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

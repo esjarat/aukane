@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://cjysc0kq8yg56"]
 
+[ext_resource type="Texture2D" uid="uid://bukyj2k1uw0eg" path="res://assets/icons/semilla_base.png" id="1_5euih"]
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_rkxof"]
 
 [resource]
 script = ExtResource("1_rkxof")
 id = &"semilla"
 nombre_visible = "Semilla Básica"
+icono = ExtResource("1_5euih")
 descripcion = "Semilla Básica"
 precio_compra = 2
 precio_venta = 1

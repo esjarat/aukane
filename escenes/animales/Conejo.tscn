@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://8l4g5mfd2g7m"]
+
+[ext_resource type="Script" uid="uid://coih0cqwoktar" path="res://scripts/animales/animal_base.gd" id="1_4y41q"]
+[ext_resource type="Script" uid="uid://c1qpn1nhhpl2t" path="res://scripts/combate/damageable.gd" id="2_260n1"]
+[ext_resource type="Script" uid="uid://dc8mkxv2t3orc" path="res://scripts/combate/damageable_barra_3d.gd" id="3_hgip0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y2rv7"]
+radius = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_gll6n"]
+radius = 0.3
+height = 0.6
+
+[node name="Conejo" type="CharacterBody3D" unique_id=632518174]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_4y41q")
+id_animal = &"conejo"
+drops = Array[Dictionary]([{
+"cantidad": 1,
+"cantidad_max": 2,
+"item_id": "carne_conejo",
+"probabilidad": 0.9
+}, {
+"item_id": "cuero"
+}])
+xp_al_morir = 3
+vida_por_nivel = 2
+xp_por_nivel = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=64049559]
+shape = SubResource("SphereShape3D_y2rv7")
+
+[node name="VisualHolder" type="Node3D" parent="." unique_id=1724384663]
+
+[node name="Mesh" type="MeshInstance3D" parent="VisualHolder" unique_id=1546990799]
+mesh = SubResource("SphereMesh_gll6n")
+
+[node name="Damageable" type="Node" parent="." unique_id=964362900]
+script = ExtResource("2_260n1")
+vida_maxima = 15
+
+[node name="ComponenteBarraVida" type="Node3D" parent="." unique_id=825234677]
+script = ExtResource("3_hgip0")
+altura_sobre_cabeza = 1.2
+ancho_barra_metros = 2.5
+alto_barra_metros = 2.0
+tamano_fuente_numeros = 262

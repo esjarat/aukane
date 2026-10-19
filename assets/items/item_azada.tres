@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://b71sgodnksewf"]
 
 [ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_mapoh"]
+[ext_resource type="Texture2D" uid="uid://bfkqoisxxilha" path="res://assets/icons/azada.png" id="1_olp85"]
 
 [resource]
 script = ExtResource("1_mapoh")
 id = &"azada"
 nombre_visible = "Azada de Madera"
+icono = ExtResource("1_olp85")
 descripcion = "Herramienta para arar tierra y limpiar parcelas marchitas."
 precio_compra = 0
 precio_venta = 30

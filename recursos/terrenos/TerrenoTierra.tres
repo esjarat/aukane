@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TipoTerreno" format=3 uid="uid://c36xdey315ksg"]
+
+[ext_resource type="Script" uid="uid://myd6f4tmj8ma" path="res://scripts/mundo/tipo_terreno.gd" id="1_j5ey1"]
+
+[resource]
+script = ExtResource("1_j5ey1")
+id = &"tierra"
+nombre_visible = "Tierra"
+color = Color(0.7014107, 0.60124344, 0.49560964, 1)
+metadata/_custom_type_script = "uid://myd6f4tmj8ma"

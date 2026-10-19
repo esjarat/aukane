@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EstacionDefinicion" format=3 uid="uid://1dp2oijsjgh1"]
+
+[ext_resource type="Script" uid="uid://syq23843dreu" path="res://scripts/recursos/estacion_definicion.gd" id="1_6gviv"]
+
+[resource]
+script = ExtResource("1_6gviv")
+id = &"primavera"
+nombre_visible = "Primavera"
+multiplicadores_peso = {
+"lluvioso": 2.0,
+"nevado": 0.5,
+"soleado": 1.0,
+"ventoso": 1.5
+}
+multiplicador_crecimiento_cultivos = 1.2
+emoji_hud = "🌸"
+metadata/_custom_type_script = "uid://syq23843dreu"

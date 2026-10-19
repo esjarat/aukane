@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="DialogoDefinicion" format=3 uid="uid://2gg1hwnpkr57"]
+
+[ext_resource type="Script" uid="uid://drfivspcpotc4" path="res://scripts/npc/dialogo_definicion.gd" id="1_5q3sx"]
+[ext_resource type="Script" uid="uid://lxtyea467oc" path="res://scripts/npc/dialogo_linea.gd" id="1_g6873"]
+[ext_resource type="Script" uid="uid://7bpii770t7mv" path="res://scripts/npc/dialogo_opcion.gd" id="2_k4pme"]
+
+[sub_resource type="Resource" id="Resource_5q3sx"]
+script = ExtResource("1_g6873")
+texto = "¡Veo que traes la madera! 🪵"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_g6873"]
+script = ExtResource("1_g6873")
+texto = "¿Me la entregas a cambio de los 20 de oro que te prometí?"
+metadata/_custom_type_script = "uid://lxtyea467oc"
+
+[sub_resource type="Resource" id="Resource_k4pme"]
+script = ExtResource("2_k4pme")
+texto_opcion = "✅ Sí, aquí tienes la madera"
+accion_especial = &"entregar_mision"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[sub_resource type="Resource" id="Resource_blfe5"]
+script = ExtResource("2_k4pme")
+texto_opcion = "❌ Aún no, déjame pensarlo"
+metadata/_custom_type_script = "uid://7bpii770t7mv"
+
+[resource]
+script = ExtResource("1_5q3sx")
+id_dialogo = &"mercader_entregar_mision"
+npc_id_propietario = &"mercader"
+nombre_mostrar_npc = "Don Mercader"
+lineas = Array[Resource]([SubResource("Resource_5q3sx"), SubResource("Resource_g6873")])
+opciones = Array[Resource]([SubResource("Resource_k4pme"), SubResource("Resource_blfe5")])
+metadata/_custom_type_script = "uid://drfivspcpotc4"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EstacionDefinicion" format=3 uid="uid://kveurhyrk771"]
+
+[ext_resource type="Script" uid="uid://syq23843dreu" path="res://scripts/recursos/estacion_definicion.gd" id="1_o085j"]
+
+[resource]
+script = ExtResource("1_o085j")
+id = &"otono"
+nombre_visible = "Otoño"
+orden = 3
+multiplicadores_peso = {
+"lluvioso": 1.5,
+"nevado": 1.0,
+"soleado": 1.0,
+"ventoso": 2.0
+}
+multiplicador_crecimiento_cultivos = 0.9
+emoji_hud = "🍂"
+metadata/_custom_type_script = "uid://syq23843dreu"

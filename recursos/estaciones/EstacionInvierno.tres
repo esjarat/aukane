@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EstacionDefinicion" format=3 uid="uid://bcoallk0rfmfe"]
+
+[ext_resource type="Script" uid="uid://syq23843dreu" path="res://scripts/recursos/estacion_definicion.gd" id="1_m6rkt"]
+
+[resource]
+script = ExtResource("1_m6rkt")
+id = &"invierno"
+nombre_visible = "Invierno"
+orden = 4
+multiplicadores_peso = {
+"lluvioso": 1.5,
+"nevado": 4.0,
+"soleado": 0.5,
+"ventoso": 1.5
+}
+multiplicador_crecimiento_cultivos = 0.4
+emoji_hud = "❄️"
+metadata/_custom_type_script = "uid://syq23843dreu"

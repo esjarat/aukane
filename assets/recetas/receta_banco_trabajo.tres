@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RecetaCrafteo" format=3 uid="uid://c7ysxwinnisji"]
+
+[ext_resource type="Script" uid="uid://scxkfumswryx" path="res://scripts/recursos/ingrediente_receta.gd" id="1_mhyfs"]
+[ext_resource type="Script" uid="uid://bd87pvs1cinwk" path="res://scripts/recursos/receta_crafteo.gd" id="2_7foop"]
+
+[sub_resource type="Resource" id="Resource_mhyfs"]
+script = ExtResource("1_mhyfs")
+item_id = &"madera"
+cantidad = 5
+metadata/_custom_type_script = "uid://scxkfumswryx"
+
+[resource]
+script = ExtResource("2_7foop")
+id = &"receta_banco_trabajo"
+id_resultado = &"banco_trabajo"
+ingredientes = Array[ExtResource("1_mhyfs")]([SubResource("Resource_mhyfs")])
+categoria = &"estaciones"
+metadata/_custom_type_script = "uid://bd87pvs1cinwk"

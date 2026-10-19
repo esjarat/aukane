@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDefinicion" format=3 uid="uid://cjvjj4jhrrff2"]
+
+[ext_resource type="Script" uid="uid://dsvx658u8q448" path="res://scripts/recursos/item_definicion.gd" id="1_6r3xt"]
+
+[resource]
+script = ExtResource("1_6r3xt")
+id = &"espada_legendaria"
+nombre_visible = "Filo del Coliseo"
+emoji_hud = "🗡️"
+descripcion = "Forjada con el colmillo del guardián."
+precio_compra = 0
+precio_venta = 500
+tipo = &"herramienta"
+stack_maximo = 1
+herramienta_tipo = &"espada_legendaria"
+metadata/_custom_type_script = "uid://dsvx658u8q448"
